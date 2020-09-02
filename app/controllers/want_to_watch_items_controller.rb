@@ -1,0 +1,2 @@
+class WantToWatchItemsController < ApplicationController
+end
