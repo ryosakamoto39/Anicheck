@@ -9,6 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
+    <%= link_to 'TOP', root_path %>
               <nav>
                   <% if user_signed_in? %>
                   <strong><%= link_to "プロフィール", users_show_path %></strong>
