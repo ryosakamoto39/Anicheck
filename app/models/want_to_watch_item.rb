@@ -1,0 +1,2 @@
+class WantToWatchItem < ApplicationRecord
+end
