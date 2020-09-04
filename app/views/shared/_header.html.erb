@@ -1,0 +1,16 @@
+<header>
+  <h1><%= link_to 'Anicheck', root_path %></h1>
+  <nav>
+    <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <%= link_to "作品登録", new_item_path %>
+        <% end %>
+      <%= link_to "プロフィール", user_path(current_user) %>
+      <%= link_to 'プロフィール変更', edit_user_registration_path %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <% else %>
+      <%= link_to 'サインアップ', new_user_registration_path %>
+      <%= link_to 'ログイン', new_user_session_path %>
+    <% end %>
+  </nav>
+</header>
