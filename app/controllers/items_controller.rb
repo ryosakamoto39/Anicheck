@@ -24,6 +24,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    @item = Item.find(params[:id]).update(item_params)
+    @item = Item.find(params[:id])
+    flash[:notice] = "更新しました"
+    redirect_to "/items/#{@item.id}"
+  end
+
     private
 
       def item_params
