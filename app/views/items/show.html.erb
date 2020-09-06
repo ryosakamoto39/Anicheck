@@ -1,0 +1,21 @@
+<% provide(:title, @item.title) %>
+
+<div class="main">
+<h2>作品情報</h2>
+
+タイトル：
+<br>
+<%= @item.title %>
+
+<br>
+<%= @item.image %>
+<br>
+
+ストーリー:
+<br>
+<%= @item.story %>
+
+<br>
+<button type="submit" class="btn btn-primary"><%= link_to "編集する", edit_item_path(@item) %></button>
+
+</div>

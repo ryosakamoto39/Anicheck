@@ -4,12 +4,19 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
   def create
     @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "作成しました"
-      #redirect_to "/items/#{@item.id}"
-      render 'new'
+      redirect_to "/items/#{@item.id}"
     else
       rollback
       flash.now[:notice] = "作成に失敗しました"
