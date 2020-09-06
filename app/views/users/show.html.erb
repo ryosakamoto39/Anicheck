@@ -1,6 +1,9 @@
 <% provide(:title,"プロフィール") %>
 
-<%= current_user.name %>
-<h1>こんにちは</h1>
-<p>ユーザー用ページです。</p>
-<img src=<%= current_user.image %>
+<div class="main">
+
+<img src=<%= current_user.image %>>
+<p><%= current_user.name %></p>
+
+
+</div>
