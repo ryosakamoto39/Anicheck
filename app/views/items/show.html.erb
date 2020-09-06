@@ -3,19 +3,16 @@
 <div class="main">
 <h2>作品情報</h2>
 
-タイトル：
-<br>
-<%= @item.title %>
+<p>タイトル：</p>
+<p><%= @item.title %></p>
 
-<br>
 <%= image_tag @item.image.to_s %>
-<br>
 
-ストーリー:
-<br>
-<%= @item.story %>
+<p>ストーリー:</p>
+<p><%= @item.story %></p>
 
-<br>
 <button type="submit" class="btn btn-primary"><%= link_to "編集する", edit_item_path(@item) %></button>
+
+<p><%= link_to "作品一覧画面へ", items_path %></p>
 
 </div>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/' => 'home#top', as: 'root'
   get 'search' => 'search#show', as: 'search'
   devise_for :users
-  resources :items, except: %i[index]
+  resources :items
   resources :reviews, except: %i[index show]
   resources :manufacturers, only: %i[edit update destroy]
   resources :categories, only: %i[edit update destroy]
