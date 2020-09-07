@@ -23,16 +23,6 @@
 
 <p>この作品のレビュー （count） 件</p>
 
-<%= image_tag @review.user.image.to_s %>
-<p><%= @review.user.name %></p>
-<p><%= @review.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
-<p>（評価）</p>
-<p><%= @review.content %></p>
-
-<% if current_user&.admin? || current_user == @review.user? %>
-      <%= link_to "編集", "/reviews/#{@review.id}/edit" %>
-      <%= link_to "削除", "/reviews/#{@review.id}", method: "delete",
-          data: { confirm: '一度削除すると元に戻すことはできません。本当に削除してよろしいでしょうか？' } %>
-<% end %>
+<%= render @reviews %>
 
 </div>
