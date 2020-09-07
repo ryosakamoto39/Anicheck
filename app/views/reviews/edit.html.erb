@@ -1,7 +1,7 @@
-<% provide(:title, "レビュー投稿") %>
+<% provide(:title, "レビュー編集") %>
 
 <div class="main">
-<h2>レビュー投稿</h2>
+<h2>レビュー編集</h2>
 
 <%= form_with(model: @review, local: true) do |form| %>
 
@@ -10,7 +10,7 @@
   <% end %>
 
   <p>スコア（5点満点）</p>
-   <%= form.select :score, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], { include_blank: '選択してください'} %>
+  <%= form.select :score, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], { include_blank: '選択してください'} %>
 
   <p>感想</p>
   <%= form.text_area :content %>
@@ -26,4 +26,5 @@
   <p><%= form.submit value="投稿する", data: { disable_with: "送信中" } %></p>
 
 <% end %>
+
 </div>

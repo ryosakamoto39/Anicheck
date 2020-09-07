@@ -1,27 +1,27 @@
 <% provide(:title, @item.title) %>
 
 <div class="main">
-  <h2>作品情報編集</h2>
+<h2>作品情報編集</h2>
 
-  <%= form_with(model: @item, local: true) do |form| %>
+<%= form_with(model: @item, local: true) do |form| %>
 
-        <% @item.errors.full_messages.each do |message| %>
-          <%= message %>
-        <% end %>
-
-          <p>作品名</p>
-            <%= form.text_field :title %>
-
-          <p>ストーリー</p>
-            <%= form.text_area :story %>
-
-          <p>作品画像</p>
-            <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png', id: "item-image" %>
-
-          <br>
-
-            <%= form.submit value="登録する", data: { disable_with: "送信中" } %>
-
+  <% @item.errors.full_messages.each do |message| %>
+    <%= message %>
   <% end %>
+
+  <p>作品名</p>
+  <%= form.text_field :title %>
+
+  <p>ストーリー</p>
+  <%= form.text_area :story %>
+
+  <p>作品画像</p>
+  <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png', id: "item-image" %>
+
+  <br>
+
+  <%= form.submit value="登録する", data: { disable_with: "送信中" } %>
+
+<% end %>
 
 </div>

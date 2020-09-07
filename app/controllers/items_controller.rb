@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @review = Review.find_by(item_id: params[:id])
   end
 
   def edit
@@ -33,6 +34,17 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     flash[:notice] = "更新しました"
     redirect_to "/items/#{@item.id}"
+  end
+
+  def destroy
+    @item = Item.find_by(id: params[:id])
+    if @item&.destroy
+      flash[:notice] = "作品を削除しました"
+      redirect_to items_path
+    else
+      flash[:notice] = "削除に失敗しました"
+      redirect_to "/items/#{@item.id}"
+    end
   end
 
     private
