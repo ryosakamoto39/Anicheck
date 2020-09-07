@@ -1,0 +1,28 @@
+<% provide :title, "レビュー投稿" %>
+
+<div class="main">
+
+<%= form_with(model: @review, local: true) do |form| %>
+
+  <% @review.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+
+  <p>スコア（5点満点）</p>
+   <%= form.select :score, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], { include_blank: '選択してください'} %>
+
+  <p>感想</p>
+  <%= form.text_area :content %>
+
+  <p>タグ（実装予定）</p>
+
+  <p>画像（任意）</p>
+  <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png', id: "item-image" %>
+
+  <%= form.hidden_field :item_id, value: @item.id %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <p><%= form.submit value="投稿する", data: { disable_with: "送信中" } %></p>
+
+<% end %>
+</div>
