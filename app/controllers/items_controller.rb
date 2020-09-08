@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @reviews = Review.page(params[:page]).per(5)
+    @reviews = Review.where(item_id: params[:id]).page(params[:page]).per(5)
   end
 
   def edit
