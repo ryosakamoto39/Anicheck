@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'home#top', as: 'root'
   get 'search' => 'search#show', as: 'search'
+  get 'tags/:tag' => 'item#show', as: :tag
   devise_for :users
   resources :items
   resources :reviews, except: %i[index show]
