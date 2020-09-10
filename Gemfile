@@ -24,6 +24,7 @@ gem 'kaminari'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '1.3.13'
+  gem 'rspec-rails'
 end
 
 group :development do
