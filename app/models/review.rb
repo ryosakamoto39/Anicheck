@@ -6,5 +6,6 @@ class Review < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
   belongs_to :item
+  has_many :review_likes
   acts_as_taggable
 end
