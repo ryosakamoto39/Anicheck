@@ -8,9 +8,5 @@ class Review < ApplicationRecord
   belongs_to :item
   has_many :review_likes, dependent: :destroy
   acts_as_taggable
-
-  def liked_by?(user)
-    likes.where(user_id: user.id).exists?
-  end
   
 end
