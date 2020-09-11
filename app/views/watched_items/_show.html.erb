@@ -2,10 +2,10 @@
 
 <% if WatchedItem.find_by(user_id: current_user&.id, item_id: @item.id) %>
   <%= link_to "/watched_items/#{@item.id}?count=#{count}", method: "delete", remote: true do %>
-    <span class="fa fa-heart like-btn-unlike">観た！<%= count %></span>
+    <span class="fa fa-check-square watch-btn">観た！<%= count %></span>
   <% end %>
 <% else %>
   <%= link_to "/watched_items?item_id=#{@item.id}&count=#{count}", method: "post", remote: true do %>
-    <span class="fa fa-heart like-btn">観た！<%= count unless count.zero? %></span>
+    <span class="fa fa-check-square-o watch-btn-unwatch">観た！<%= count unless count.zero? %></span>
   <% end %>
 <% end %>
