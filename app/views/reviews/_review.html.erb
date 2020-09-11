@@ -16,7 +16,9 @@
           </script>
 
 <p><%= review.content %></p>
-<p>tags: <%= raw(review.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></p>
+<p><%= raw(review.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></p>
+
+<%= render "review_likes/show", review: review, count: @count %>
 
 <% if current_user&.admin? || review.user_id == current_user.id %>
       <p><%= link_to "編集", "/reviews/#{review.id}/edit" %>

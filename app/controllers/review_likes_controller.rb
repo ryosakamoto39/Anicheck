@@ -2,7 +2,8 @@ class ReviewLikesController < ApplicationController
 
   def create
     @review = Review.find(params[:review_id])
-    ReviewLike.create(user_id: @current_user.id, review_id: review.id)
+    ReviewLike.create(user_id: current_user.id, review_id: @review.id)
+    @count = params[:count].to_i + 1
 
     respond_to do |format|
       format.js
@@ -11,7 +12,8 @@ class ReviewLikesController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    ReviewLike.find_by(user_id: @current_user.id, review_id: params[:id]).destroy
+    ReviewLike.find_by(user_id: current_user.id, review_id: params[:id]).destroy
+    @count = params[:count].to_i - 1
 
     respond_to do |format|
       format.js
