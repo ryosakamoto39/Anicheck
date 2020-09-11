@@ -14,6 +14,12 @@ RSpec.describe ReviewLike, type: :model do
       expect(review_like).to be_valid
     end
 
+    it "is invalid without a user_id" do
+      review_like = ReviewLike.new(user_id: nil, review_id: review.id)
+      review_like.valid?
+      expect(review_like.errors[:user_id]).to include("を入力してください")
+    end
+
 
 
   end

@@ -6,6 +6,11 @@ class Review < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
   belongs_to :item
-  has_many :review_likes
+  has_many :review_likes, dependent: :destroy
   acts_as_taggable
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
+  
 end
