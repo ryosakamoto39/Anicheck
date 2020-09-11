@@ -13,6 +13,11 @@
 
 <p><%= link_to "この作品のレビューを書く", "/reviews/new?item_id=#{@item.id}" %></p>
 
+<%= render "want_to_watch_items/show" %>
+<%= render "watched_items/show" %>
+
+<br>
+
 <% if current_user&.admin? %>
       <%= link_to "編集", "/items/#{@item.id}/edit" %>
       <%= link_to "削除", "/items/#{@item.id}", method: "delete",
