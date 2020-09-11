@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_073055) do
+ActiveRecord::Schema.define(version: 2020_09_11_085730) do
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -122,11 +122,15 @@ ActiveRecord::Schema.define(version: 2020_09_10_073055) do
   create_table "want_to_watch_items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_id"
+    t.string "item_id"
   end
 
   create_table "watched_items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_id"
+    t.string "item_id"
   end
 
 end

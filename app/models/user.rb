@@ -7,4 +7,6 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :reviews, dependent: :destroy
   has_many :review_likes, dependent: :destroy
+  has_many :want_to_watch_items
+  has_many :watched_items
 end

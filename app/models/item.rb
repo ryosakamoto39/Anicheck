@@ -3,5 +3,7 @@ class Item < ApplicationRecord
   validates :story, presence: true, length: { maximum: 800 }
   mount_uploader :image, ImageUploader
   has_many :reviews
+  has_many :want_to_watch_items
+  has_many :watched_items
 
 end
