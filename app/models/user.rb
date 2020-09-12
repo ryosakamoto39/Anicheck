@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :review_likes, dependent: :destroy
   has_many :want_to_watch_items
   has_many :watched_items
+  has_many :comments
 end

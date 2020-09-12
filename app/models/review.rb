@@ -7,6 +7,7 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :item
   has_many :review_likes, dependent: :destroy
+  has_many :comments
   acts_as_taggable
-  
+
 end
