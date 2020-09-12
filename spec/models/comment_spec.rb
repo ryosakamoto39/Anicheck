@@ -9,4 +9,5 @@ RSpec.describe Comment, type: :model do
     expect { FactoryBot.create(:comment) }.to change(Comment.all, :count).by(1)
   end
 
+  
 end
