@@ -1,1 +1,1 @@
-$(".show-items-<%= @items.id %> .item-area").html("<%= j(render "watched_items/show", item: @item, count: @count) %>");
+$(".show-items-<%= @item.id %> .watched-items").html("<%= j(render "watched_items/show", item: @item, count: @count) %>");

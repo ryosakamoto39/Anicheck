@@ -1,6 +1,9 @@
 <% provide(:title, @item.title) %>
 
 <div class="main">
+  <div class="show-item show-items-<%= @item.id %>">
+    <div class="show-item show-items-<%= @item.id %>">
+
 <h2>作品情報</h2>
 
 <p>タイトル：</p>
@@ -13,8 +16,13 @@
 
 <p><%= link_to "この作品のレビューを書く", "/reviews/new?item_id=#{@item.id}" %></p>
 
+<span class="want-to-watch-items">
 <%= render "want_to_watch_items/show" %>
+</span>
+
+<span class="watched-items">
 <%= render "watched_items/show" %>
+</span>
 
 <br>
 
@@ -33,4 +41,6 @@
 
 <%= paginate @reviews %>
 
+    </div>
+  </div>
 </div>
