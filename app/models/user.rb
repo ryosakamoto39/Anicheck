@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :want_to_watch_items
   has_many :watched_items
   has_many :comments
+  has_many :comment_likes
 end
