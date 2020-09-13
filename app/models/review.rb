@@ -3,6 +3,7 @@ class Review < ApplicationRecord
   validates :content, presence: true, length: { maximum: 400 }
   validates :user_id, presence: true
   validates :item_id, presence: true
+  default_scope -> { order(created_at: :desc) }
   mount_uploader :image, ImageUploader
   belongs_to :user
   belongs_to :item

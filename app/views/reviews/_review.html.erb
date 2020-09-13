@@ -49,7 +49,7 @@
 
 <div id="latest-comment-<%= review.id %>"></div>
     <%= render partial: "items/comment", collection: review.comments.includes(:user).where.not(user_id: @current_user&.block_ids).order(created_at: :desc) %>
-  
+
 <% if current_user&.admin? || review.user_id == current_user.id %>
       <p><%= link_to "編集", "/reviews/#{review.id}/edit" %>
       <%= link_to "削除", "/reviews/#{review.id}", method: "delete",
