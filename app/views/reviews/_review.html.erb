@@ -24,6 +24,32 @@
 <%= render "review_likes/show", review: review, count: @count %>
 </span>
 
+<span class="fa fa-comment-o">
+  <% if current_user %>
+    <%= link_to "コメントする", "/comments/new?review_id=#{review.id}", remote: true %>
+  <% else %>
+    <span>コメントする</span>
+  <% end %>
+</span>
+
+<% comment_count ||= review.comments.where.not(user_id: @current_user).count %>
+<span class="comment-count <%= comment_count %>">
+  <%= comment_count unless comment_count.zero? %>
+</span>
+
+<div id="review-<%= review.id %>" class="comment-form hidden">
+  <%= form_with(url: "/comments?review_id=#{review.id}" , model: Comment.new) do |form| %>
+    <p>コメント</p>
+    <%= form.text_area :content %>
+    <button type="submit" class="submit-btn">決定</button>
+    <button type="reset" class="cancel-btn">キャンセル</button>
+  <% end %>
+  <div class="clear"></div>
+</div>
+
+<div id="latest-comment-<%= review.id %>"></div>
+    <%= render partial: "items/comment", collection: review.comments.includes(:user).where.not(user_id: @current_user&.block_ids).order(created_at: :desc) %>
+  
 <% if current_user&.admin? || review.user_id == current_user.id %>
       <p><%= link_to "編集", "/reviews/#{review.id}/edit" %>
       <%= link_to "削除", "/reviews/#{review.id}", method: "delete",
