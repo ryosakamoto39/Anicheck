@@ -29,4 +29,10 @@ RSpec.describe Relationship, type: :model do
     end
   end
 
+  it "can not follow yourself" do
+    relationship = Relationship.new(follower_id: User.first.id, followed_id: User.first.id)
+    relationship.valid?
+    expect(relationship.errors[:followed_id]).to include("自分自身をフォローすることはできません")
+  end
+
 end
