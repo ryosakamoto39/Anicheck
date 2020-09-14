@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :tags, only: %i[destroy]
   resources :comments, except: %i[index]
   resources :rooms, only: %i[index show create]
+  resources :messages, only: [:create]
   resources :relationships, only: %i[create destroy]
   resources :comment_likes, only: %i[create destroy]
   resources :review_likes, only: %i[create destroy]
