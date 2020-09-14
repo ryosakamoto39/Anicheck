@@ -2,12 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
   before do
-    2.times { FactroyBot.create(:user) }
-  end
-
-  it "has a valid factory" do
-    FactroyBot.create(:relationship)
-    expect { FactroyBot.create(:relationship) }.to change(Relationship.all, :count).by(1)
+    2.times { FactoryBot.create(:user) }
   end
 
   describe "Presence of follower_id, followed_id" do
