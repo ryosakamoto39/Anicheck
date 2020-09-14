@@ -1,0 +1,5 @@
+$(function() {
+  $("#follower").html('<%= link_to "フォロワー(#{@user.followers.count})", "/users/#{@user.id}?type=follower", remote: true %>');
+  $("#following").html('<%= link_to "フォロー(#{@user.following.count})", "/users/#{@user.id}?type=following", remote: true %>');
+  $(".follow-link").html('<%= link_to "フォロー", "/relationships?user_id=#{@user.id}", method: :post, remote: true %>');
+});
