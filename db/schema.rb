@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_013836) do
+ActiveRecord::Schema.define(version: 2020_09_14_073232) do
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2020_09_14_013836) do
   create_table "entries", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "room_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -55,6 +57,9 @@ ActiveRecord::Schema.define(version: 2020_09_14_013836) do
   create_table "messages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "room_id"
+    t.string "content"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -84,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_013836) do
   create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
