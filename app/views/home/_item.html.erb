@@ -1,0 +1,13 @@
+<li class="item-scroll-wrapper">
+  <div class="item-scroll-image">
+    <%= link_to item do %>
+     <%= image.tag item.image.url, alt: "作品の画像" %>
+    <% end %>
+  </div>
+
+  <div class="item-scroll-title">
+    <% item.title %>
+  </div>
+
+  <%= render "shared/evaluation", item: item, division: true %>
+</li>
