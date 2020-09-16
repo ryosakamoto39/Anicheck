@@ -25,7 +25,7 @@
 
   <div class="review-scroll-content">
     <div class="review-scroll-content-wrapper">
-      <% if review.content.length > @digest_rength %>
+      <% if review.content.length > @digest_length %>
         <%= review.content.slice(0..@digest_rength - 1).concat("…") %>
       <% else %>
         <%= review.content %>
@@ -36,19 +36,6 @@
       <%= link_to "続きを見る", "items/#{review.item.id}?review_id=#{review.id}" %>
     </p>
 
-    <%#
-       multipleは使わない、一枚画像のみ表示でOK
-    %>
-    <div class="review-scroll-image">
-      <% if review.multiple_images.any? %>
-        <%= link_to "items/#{review.item.id}?review_id=#{review.id}" do %>
-          <%= image_tag review.multiple_images[0].url, alt: "作品のレビュー画像" %>
-        <% end %>
-
-        <% else %>
-          <div class="review-blank-image"></div>
-      <% end %>
-    </div>
   </div>
 
   <div class="review-scroll-end">

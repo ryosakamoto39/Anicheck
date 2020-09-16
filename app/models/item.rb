@@ -6,6 +6,13 @@ class Item < ApplicationRecord
   has_many :want_to_watch_items
   has_many :watched_items
 
+  def average_score
+    count = reviews.count
+    return 0 if count.zero? # 未レビューの場合は、0点とする
+
+    reviews.sum(:score) / count
+  end
+
   def self.popular_ids
 #    Hash[Item.rank.sort_by { |_, score| -score }].keys
   end
@@ -35,5 +42,23 @@ class Item < ApplicationRecord
    want_count = WantToWatchItem.group(:item_id).count
    want_count.sort_by { |_, count| -count }.to_h.keys
  end
+
+ # あるタグが付いたレビューを持つ商品を、タグ付け回数の降順に返す
+   def self.tagged_desc(tag_name)
+     # 対象タグのidを割り出す
+     tag_id = ActsAsTaggableOn::Tag.find_by(name: tag_name).id
+
+     # 対象タグの付けられたreviewのidを割り出す
+     review_ids = ActsAsTaggableOn::Tagging.where(tag_id: tag_id).pluck(:taggable_id)
+
+     # 対象タグが付いたレビューをitem_id毎に数えることで、itemに対するtag付け回数を計算する
+     tag_count = Review.where(id: review_ids).group(:item_id).count
+
+     # item_idの配列を出現回数の降順に並び替え、ハッシュ化してキー(id)を取り出す
+     item_ids = tag_count.sort_by { |_, count| -count }.to_h.keys
+
+     # 降順のidでtagを抽出する。orderを明示的に指定しなければ、tag_idsの順番通りにならない
+     Item.where(id: item_ids).order([Arel.sql('field(id, ?)'), item_ids])
+   end
 
 end
