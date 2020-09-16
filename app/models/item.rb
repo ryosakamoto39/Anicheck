@@ -6,4 +6,34 @@ class Item < ApplicationRecord
   has_many :want_to_watch_items
   has_many :watched_items
 
+  def self.popular_ids
+#    Hash[Item.rank.sort_by { |_, score| -score }].keys
+  end
+
+  def self.rank
+#    border_score = 1 # 1点を超えない商品は除く
+#    weight = -3 # 5点満点のレビューで3点を0点、5点を2点として評価を再マッピングするために使用する
+  # 1点がたくさん集まるより、低評価が少なく、高得点のみを獲得している方が評価が高いため
+
+#    original_score = Review.group(:item_id).sum(:score) # item_id毎にreviewのスコアを集計
+#    review_count = Review.group(:item_id).count # item毎のreviewを集計
+
+#    total_score = original_score.merge(review_count) { |_key, score, count| score + count * weight } # Σ(review.score - 3)と同じ計算式
+#    total_score.delete_if do |_key, score|
+#      score <= border_score # border_score以下のitem取り除く
+#    end
+  end
+
+  # 観た！の降順にidを返す
+ def self.watched_ids
+   watched_count = WatchedItem.group(:item_id).count
+   watched_count.sort_by { |_, count| -count }.to_h.keys
+ end
+
+ # 観たい！の降順にidを返す
+ def self.want_to_watch_ids
+   want_count = WantToWatchItem.group(:item_id).count
+   want_count.sort_by { |_, count| -count }.to_h.keys
+ end
+
 end

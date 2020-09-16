@@ -26,7 +26,7 @@
     <%= render partial: "home/item", collection: @want_to_watch_items %>
   </ul>
 
-  <% most_used_tags.each do |tag| %>
+  <% @most_used_tags.each do |tag| %>
     <h2 class="scroll-title">#<%= tag.name %>のタグが付いた作品</h2>
     <ul class="horizontal-list">
       <%= render partial: "home/item", collection: Item.tagged_desc(tag.name).limit(@item_select) %>
