@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="search-digest">
-    <%#= "#{@digest}：#{@results.count}件" %>
+    <%= "#{@digest}：#{@results.count}件" %>
     <% if @keyword != "" %>
       <h6 class="search-no-option"><%= link_to "全件検索を行う", "/search" %></h6>
     <% end %>
@@ -10,7 +10,6 @@
 
   <ul class="user-tabs">
     <li class="<%= @type %>-" id="item"><%= link_to "作品(#{@items.count})", "/search?type=item&keyword=#{@keyword}", remote: true %></li>
-    <li class="<%= @type %>-" id="review"><%= link_to "レビュー(#{@reviews.count})", "/search?type=review&keyword=#{@keyword}", remote: true %></li>
     <li class="<%= @type %>-" id="tag"><%= link_to "タグ(#{@tags.count})", "/search?type=tag&keyword=#{@keyword}", remote: true %></li>
     <li class="<%= @type %>-" id="user"><%= link_to "ユーザー(#{@users.count})", "/search?type=user&keyword=#{@keyword}", remote: true %></li>
   </ul>
