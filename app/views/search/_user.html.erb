@@ -1,0 +1,35 @@
+<div class="search-index-item">
+  <div class="search-show-item">
+    <div class="search-show-userimage">
+      <%= link_to "/users/#{user.id}", alt: "ユーザの画像" do %>
+        <%= image_tag user.image.url %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="search-item-wrapper search-user">
+    <div class="search-item-title">
+
+      <%= link_to(user.name, "/users/#{user.id}") %>
+
+      <% if @current_user %>
+        <% if @current_user.active_blocks.pluck(:blocked_id).include?(user.id) %>
+          <span class="search-user-block">(ブロックしています)</span>
+        <% end %>
+
+        <% if @current_user.following.include?(user)  %>
+          <span class="search-user-follow">(フォローしています)</span>
+        <% end %>
+
+        <% if @current_user.followers.include?(user)  %>
+          <span class="search-user-follow">(フォローされています)</span>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="search-item-description">
+      <p><%= "フォロー(#{user.following.count})" %></p>
+      <p><%= "フォロワー(#{user.followers.count})" %></p>
+    </div>
+  </div>
+</div>

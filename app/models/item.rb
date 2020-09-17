@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   has_many :reviews
   has_many :want_to_watch_items
   has_many :watched_items
+  acts_as_taggable
 
   def average_score
     count = reviews.count
@@ -60,5 +61,11 @@ class Item < ApplicationRecord
      # 降順のidでtagを抽出する。orderを明示的に指定しなければ、tag_idsの順番通りにならない
      Item.where(id: item_ids).order([Arel.sql('field(id, ?)'), item_ids])
    end
+
+   def self.search(keyword)
+     search = "%" + keyword + "%"
+     Item.eager_load(:reviews, :tags).where('items.title like ? or items.story like ? or tags.name like ?', search, search, search)
+   end
+
 
 end

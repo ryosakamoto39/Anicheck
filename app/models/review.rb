@@ -39,4 +39,9 @@ class Review < ApplicationRecord
       like_count.merge(comment_count) { |_key, like, comment| like * like_weight + comment * comment_weight }
     end
 
+    def self.search(keyword)
+      search = "%" + keyword + "%"
+      eager_load(:tags).where('reviews.content like ? or tags.name like ? or items.title like ?', search, search, search)
+    end
+
 end
