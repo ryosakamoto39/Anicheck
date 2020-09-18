@@ -1,11 +1,7 @@
 <div class="search-index-item">
   <div class="search-show-item">
     <%= link_to "/items/#{review.item_id}?review_id=#{review.id}" do %>
-      <% if review.multiple_images.any? %>
-        <%= image_tag review.multiple_images[0].url, alt: "商品の画像" %>
-      <% else %>
         <%= image_tag review.item.image.url, alt: "商品の画像" %>
-      <% end %>
     <% end %>
   </div>
 

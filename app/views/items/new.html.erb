@@ -1,4 +1,6 @@
 <% provide(:title,"作品登録") %>
+<% breadcrumb :new_item %>
+
 
 <div class="main">
 <h2>作品登録</h2>
@@ -19,7 +21,7 @@
           <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png', id: "item-image" %>
 
         <br>
-        
+
           <%= form.submit value="登録する", data: { disable_with: "送信中" } %>
 
 <% end %>

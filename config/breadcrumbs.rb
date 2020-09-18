@@ -1,12 +1,41 @@
 crumb :root do
-  link "Home", root_path
+  link "トップ", root_path
 end
 
-crumb :login do |root|
+crumb :log_in do |root|
   link "ログイン", new_user_session_path
   parent :root, root
 end
 
+crumb :sign_in do |root|
+  link "新規登録", new_user_registration_path
+  parent :root, root
+end
+
+crumb :new_item do |root|
+  link "作品登録", new_item_path
+  parent :root, root
+end
+
+crumb :user do |root|
+  link User.find(params[:id]).name, user_path
+  parent :root, root
+end
+
+crumb :message do |user|
+  link "メッセージ", room_path
+  parent :user, user
+end
+
+crumb :item do |root|
+  link Item.find(params[:id]).title, item_path
+  parent :root, root
+end
+
+crumb :search do |root|
+  link "検索結果", search_path
+  parent :root, root
+end
 
 # crumb :projects do
 #   link "Projects", projects_path
