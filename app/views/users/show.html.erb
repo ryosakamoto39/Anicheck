@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 
-<div class="main">
+<div class="container">
 
 <img src=<%= @user.image %>>
 <p><%= @user.name %></p>
@@ -29,6 +29,17 @@
     </div>
 <% end %>
 
+  <ul class="user-tabs">
+    <li class="<%= @type %>-" id="review"><%= link_to "レビュー(#{@user.reviews.count})", "/users/#{@user.id}?type=review", remote: true %></li>
+    <li class="<%= @type %>-" id="watched_item"><%= link_to "観た！(#{@user.watched_items.count})", "/users/#{@user.id}?type=watched_item", remote: true %></li>
+    <li class="<%= @type %>-" id="want_to_watch_item"><%= link_to "観たい！(#{@user.want_to_watch_items.count})", "/users/#{@user.id}?type=want_to_watch_item", remote: true %></li>
+    <li class="<%= @type %>-" id="liked_review"><%= link_to "いいね！(#{@user.review_likes.count})", "/users/#{@user.id}?type=liked_review", remote: true %></li>
+    <li class="<%= @type %>-" id="following"><%= link_to "フォロー(#{@user.following.count})", "/users/#{@user.id}?type=following", remote: true %></li>
+    <li class="<%= @type %>-" id="follower"><%= link_to "フォロワー(#{@user.followers.count})", "/users/#{@user.id}?type=follower", remote: true %></li>
+  </ul>
 
+  <div class="search-result">
+    <%= render partial: "search/review", collection: @results %>
+  </div>
 
 </div>
