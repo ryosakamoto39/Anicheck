@@ -151,6 +151,35 @@
 }
 
 /* user */
+.user-tabs {
+  margin-top: 40px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.user-tabs li {
+  float: left;
+  list-style-type: none;
+}
+
+.user-tabs a {
+  display: inline-block;
+  padding: 16px 25px;
+  color: #afb6bf;
+}
+
+.user-tabs li.item-#item,
+.user-tabs li.review-#review,
+.user-tabs li.tag-#tag,
+.user-tabs li.user-#user,
+.user-tabs li.liked_review-#liked_review,
+.user-tabs li.watched_item-#watched_item,
+.user-tabs li.want_to_watch_item-#want_to_watch_item,
+.user-tabs li.follower-#follower,
+.user-tabs li.following-#following {
+  border-bottom: 2px solid #3ecdc6;
+}
 
 
 /* review */
