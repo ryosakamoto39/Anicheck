@@ -42,6 +42,6 @@
     <% like_count = review.review_likes.count %>
     <span class="fa fa-heart like-btn-unlike review-scroll-margin">いいね！<%= like_count unless like_count.zero? %></span>
     <% comment_count = review.comments.count %>
-    <span class="fas fa-comment">コメント <%= comment_count unless comment_count.zero? %></span>
+    <span class="fa fa-comment-o">コメント <%= comment_count unless comment_count.zero? %></span>
   </div>
 </li>
