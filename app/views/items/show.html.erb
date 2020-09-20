@@ -36,7 +36,9 @@
 <p><%= link_to "作品一覧画面へ", items_path %></p>
 
 <p>この作品のレビュー <%= @reviews.count %> 件</p>
-<p>平均評価 （count）</p>
+<p>平均評価 <%= @average_rate %> </p>
+
+
 
 <%= render @reviews %>
 
