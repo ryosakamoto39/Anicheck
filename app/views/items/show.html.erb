@@ -1,8 +1,7 @@
 <% provide(:title, @item.title) %>
 <% breadcrumb :item %>
 
-
-<div class="main">
+<div class="container">
   <div class="show-items-<%= @item.id %>">
     <div class="show-items-<%= @item.id %>">
 
@@ -36,7 +35,7 @@
 
 <p><%= link_to "作品一覧画面へ", items_path %></p>
 
-<p>この作品のレビュー （count） 件</p>
+<p>この作品のレビュー <%= @reviews.count %> 件</p>
 <p>平均評価 （count）</p>
 
 <%= render @reviews %>
