@@ -1,3 +1,4 @@
+<% provide(:title, "メッセージ") %>
 <% breadcrumb :message %>
 
 <% @entries.each do |e| %>
@@ -11,6 +12,7 @@
   </div>
 <% end %>
 <hr>
+
 <div class="chats">
   <div class="chat">
     <% if @messages.present? %>
@@ -19,6 +21,9 @@
           <div class="chat-face">
             <%= image_tag m.user.image.to_s, class:"user-image" %>
           </div>
+          <a class="rooms-user-link" href="/users/<%= m.user.id %>">
+            <%= m.user.name %>
+          </a>
           <div class="chat-hukidashi"> <strong><%= m.content %></strong> <br>
             <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
           </div>

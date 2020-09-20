@@ -6,7 +6,7 @@
 
       <div class="search-menu">
       <%= form_with url: "/search", method: "get", local: true do |form| %>
-          <%= form.search_field :keyword, placeholder: "作品・レビュー・ユーザーを検索", value: @keyword %>
+          <%= form.search_field :keyword, placeholder: "作品・タグ・ユーザーを検索", value: @keyword %>
           <button id="search-btn" type="submit"><i class="fa fa-search"></i></button>
         <% end %>
       </div>

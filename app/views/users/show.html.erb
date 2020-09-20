@@ -3,9 +3,10 @@
 
 
 <div class="container">
-
-<img src=<%= @user.image %>>
-<p><%= @user.name %></p>
+<div class="users-show">
+  <div class="user">
+    <img src=<%= @user.image %>>
+    <h2><%= @user.name %></h2>
 
 <% unless @user.id == current_user.id %>
   <% if @isRoom == true %>
@@ -30,6 +31,10 @@
       <% end %>
     </div>
 <% end %>
+
+</div>
+</div>
+
 
   <ul class="user-tabs">
     <li class="<%= @type %>-" id="review"><%= link_to "レビュー(#{@user.reviews.count})", "/users/#{@user.id}?type=review", remote: true %></li>

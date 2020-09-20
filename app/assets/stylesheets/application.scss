@@ -151,6 +151,24 @@
 }
 
 /* user */
+.users-show {
+  text-align: center;
+}
+
+.user img {
+  width: 80px;
+  height: 80px;
+  border-radius: 70%;
+  margin: 20px 0 10px;
+  object-fit: cover;
+}
+
+.user h2 {
+  font-size: 2.0rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
 .user-tabs {
   margin-top: 40px;
   background-color: white;
@@ -181,6 +199,22 @@
   border-bottom: 2px solid #3ecdc6;
 }
 
+.item-#item a,
+.review-#review a,
+.manufacturer-#manufacturer a,
+.category-#category a,
+.tag-#tag a,
+.user-#user a,
+.liked_review-#liked_review a,
+.eaten_item-#eaten_item a,
+.want_to_eat_item-#want_to_eat_item a,
+.follower-#follower a,
+.following-#following a,
+.blocking-#blocking a{
+  color: #2d3133;
+}
+
+/* item */
 
 /* review */
 .like-btn {
@@ -329,6 +363,9 @@
   margin-left: 50px;
   height: 50px;
 }
+
+/* message */
+
 
 /* footer */
 .footer-wrapper {
