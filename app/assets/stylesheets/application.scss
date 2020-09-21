@@ -216,7 +216,58 @@
 
 /* item */
 
+.item-form {
+  padding: 30px 30px 5px 30px;
+  background-color: white;
+  box-shadow: 0 2px 6px #c1ced7;
+  overflow: hidden;
+  border-radius: 10px;
+}
 
+.item-left {
+  float: left;
+}
+
+.item-title {
+  font-size: 3.0rem;
+  padding-bottom: 2px;
+  border-bottom: solid 2px #5282d4;
+}
+
+.item-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: fill;
+}
+
+.watched-items {
+  font-size: 1.2rem;
+  margin-left: 30px;
+}
+
+.want-to-watch-items {
+  font-size: 1.2rem;
+}
+
+.item-right {
+  margin-top: -370px;
+  margin-left: 350px;
+  margin-right: 30px;
+  float: right;
+}
+
+.item-rate {
+  color: orange;
+}
+
+.item-edit {
+  float: right;
+}
+
+.item-division {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
 
 /* review */
 .like-btn {

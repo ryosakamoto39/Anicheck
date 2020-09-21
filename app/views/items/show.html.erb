@@ -5,44 +5,54 @@
   <div class="show-items-<%= @item.id %>">
     <div class="show-items-<%= @item.id %>">
 
-<h2>作品情報</h2>
+<div class="item-form">
+  <h2 class="item-title">
+    <%= @item.title %>
+  </h2>
 
-<p>タイトル：</p>
-<p><%= @item.title %></p>
+  <div class="item-left">
+  <div class="item-image">
+    <%= image_tag @item.image.to_s %>
+  </div>
 
-<%= image_tag @item.image.to_s %>
+  <p><a href="/reviews/new?item_id=<%= @item.id %>}" class="btn btn-primary btn-lg">この作品のレビューを書く</a></p>
 
-<p>ストーリー:</p>
-<p><%= @item.story %></p>
+  <span class="watched-items">
+    <%= render "watched_items/show" %>
+  </span>
 
-<p><%= link_to "この作品のレビューを書く", "/reviews/new?item_id=#{@item.id}" %></p>
+  <span class="want-to-watch-items">
+    <%= render "want_to_watch_items/show" %>
+  </span>
+  </div>
 
-<span class="watched-items">
-<%= render "watched_items/show" %>
-</span>
+  <div class="item-right">
+    <h3 class="item-rate">
+      平均評価 ： <%= @average_rate.round(1) %> ／ 5.0 点
+    </h3>
 
-<span class="want-to-watch-items">
-<%= render "want_to_watch_items/show" %>
-</span>
+    <h4 class="item-story">
+      <%= @item.story %>
+    </h4>
 
-<br>
-
-<% if current_user&.admin? %>
-      <%= link_to "編集", "/items/#{@item.id}/edit" %>
-      <%= link_to "削除", "/items/#{@item.id}", method: "delete",
+    <div class="item-edit">
+      <% if current_user&.admin? %>
+        <%= link_to "編集", "/items/#{@item.id}/edit" %>
+        <%= link_to "削除", "/items/#{@item.id}", method: "delete",
           data: { confirm: '一度削除すると元に戻すことはできません。本当に削除してよろしいでしょうか？' } %>
-<% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<p><%= link_to "作品一覧画面へ", items_path %></p>
-
-<p>この作品のレビュー <%= @reviews.count %> 件</p>
-<p>平均評価 <%= @average_rate.round(1) %> </p>
+<div class="item-division">
+<h3>この作品のレビュー ： <%= @reviews.count %> 件</h3>
+</div>
 
 <%= render @reviews %>
 
 <%= paginate @reviews %>
 
-      </div>
     </div>
   </div>
 </div>
