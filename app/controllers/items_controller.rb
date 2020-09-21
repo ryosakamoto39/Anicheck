@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @reviews = Review.where(item_id: params[:id]).page(params[:page]).per(5)
-    @average_rate = Review.average(:score)
+    @average_rate = Review.where(Item_id: params[:id]).average(:score)
   end
 
   def edit
