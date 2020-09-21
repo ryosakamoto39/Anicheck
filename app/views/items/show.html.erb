@@ -15,7 +15,9 @@
     <%= image_tag @item.image.to_s %>
   </div>
 
-  <p><a href="/reviews/new?item_id=<%= @item.id %>}" class="btn btn-primary btn-lg">この作品のレビューを書く</a></p>
+  <div class ="item-botton">
+    <p><a href="/reviews/new?item_id=<%= @item.id %>}" class="btn btn-primary btn-lg">この作品のレビューを書く</a></p>
+  </div>
 
   <span class="watched-items">
     <%= render "watched_items/show" %>
@@ -46,7 +48,7 @@
 </div>
 
 <div class="item-division">
-<h3>この作品のレビュー ： <%= @reviews.count %> 件</h3>
+  <h3>この作品のレビュー ： <%= @reviews.count %> 件</h3>
 </div>
 
 <%= render @reviews %>
