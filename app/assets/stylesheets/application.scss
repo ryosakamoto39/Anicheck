@@ -9,8 +9,19 @@
   justify-content: center;
 }
 
-/* home */
+/* header */
+.navbar-brand {
 
+}
+
+
+
+.nav-item {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* home */
 .scroll-title {
   margin-top: 25px;
   text-align: center;
@@ -73,7 +84,7 @@
 
 .review-scroll-content {
   font-size: 1.2rem;
-  padding-top: 10px;
+  padding-top: 20px;
   padding-left: 20px;
 }
 

@@ -1,8 +1,9 @@
 <% provide(:title,"作品一覧") %>
+<% breadcrumb :item_list %>
 
 <div class="main">
 <h2>作品一覧</h2>
-
+<br>
 <% @items.each do |item| %>
   <p><%= link_to item.title, item_path(item) %></p>
 <% end %>

@@ -37,6 +37,11 @@ crumb :search do |root|
   parent :root, root
 end
 
+crumb :item_list do |root|
+  link "作品一覧", items_path
+  parent :root, root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

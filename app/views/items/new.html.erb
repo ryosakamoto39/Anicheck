@@ -7,22 +7,22 @@
 
 <%= form_with(model: @item, local: true) do |form| %>
 
-      <% @item.errors.full_messages.each do |message| %>
-        <%= message %>
-      <% end %>
+  <% @item.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
 
-        <p>作品名</p>
-          <%= form.text_field :title %>
+  <p>作品名</p>
+    <%= form.text_field :title, :size=>"60" %>
 
-        <p>ストーリー</p>
-          <%= form.text_area :story %>
+  <p>ストーリー</p>
+    <%= form.text_area :story, size: "60x10" %>
 
-        <p>作品画像</p>
-          <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png', id: "item-image" %>
+  <p>作品画像</p>
+    <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png', id: "item-image" %>
 
-        <br>
-
-          <%= form.submit value="登録する", data: { disable_with: "送信中" } %>
+  <br>
+  <br>
+  <%= form.submit value="登録する", data: { disable_with: "送信中" } %>
 
 <% end %>
 

@@ -8,6 +8,10 @@
     <img src=<%= @user.image %>>
     <h2><%= @user.name %></h2>
 
+  <% if current_user.id == @user.id %>
+    <%= link_to "プロフィール変更", edit_user_registration_path %>
+  <% end %>
+
 <% unless @user.id == current_user.id %>
   <% if @isRoom == true %>
     <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">メッセージ</a>
