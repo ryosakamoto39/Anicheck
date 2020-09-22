@@ -10,11 +10,13 @@
 }
 
 /* header */
-.navbar-brand {
-
+.icon::before {
+  display: inline-block;
+  margin-right: .5em;
+  font-family: fontawesome;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-
 
 .nav-item {
   padding-left: 10px;

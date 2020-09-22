@@ -33,9 +33,9 @@
       平均評価 ： <%= @average_rate.round(1) %> ／ 5.0 点
     </h3>
 
-    <h4 class="item-story">
+    <h5 class="item-story">
       <%= @item.story %>
-    </h4>
+    </h5>
 
     <div class="item-edit">
       <% if current_user&.admin? %>
