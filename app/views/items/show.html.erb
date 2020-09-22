@@ -47,14 +47,11 @@
   </div>
 </div>
 
-<div class="item-division">
-  <h3>この作品のレビュー ： <%= @reviews.count %> 件</h3>
-</div>
-
-<%= render @reviews %>
-
-<%= paginate @reviews %>
-
+    <div class="review-form">
+      <h3>この作品のレビュー ： <%= @reviews.count %> 件</h3>
+      <%= render @reviews %>
+      <%= paginate @reviews %>
     </div>
+  </div>
   </div>
 </div>
