@@ -38,10 +38,8 @@
 <% end %>
 <% end %>
 
-
 </div>
 </div>
-
 
   <ul class="user-tabs">
     <li class="<%= @type %>-" id="review"><%= link_to "レビュー(#{@user.reviews.count})", "/users/#{@user.id}?type=review", remote: true %></li>

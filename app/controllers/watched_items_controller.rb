@@ -1,5 +1,6 @@
 class WatchedItemsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def create
     @item = Item.find(params[:item_id])
     WatchedItem.create(user_id: current_user.id, item_id: @item.id)
