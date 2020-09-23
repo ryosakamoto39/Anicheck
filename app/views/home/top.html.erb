@@ -7,11 +7,6 @@
     <%= render partial: "home/review", collection: @recent_reviews.includes(:user, :item) %>
   </ul>
 
-  <h2 class="scroll-title">高評価のレビュー</h2>
-  <ul class="horizontal-list">
-    <%= render partial: "home/review", collection: @popular_reviews.includes(:user, :item) %>
-  </ul>
-
   <h2 class="scroll-title">人気の作品</h2>
   <ul class="horizontal-list">
     <%= render partial: "home/item", collection: @popular_items %>
