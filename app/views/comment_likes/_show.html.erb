@@ -1,5 +1,7 @@
 <% count ||= CommentLike.where(comment_id: comment.id).count %>
 
+<% if user_signed_in? %>
+
 <% if CommentLike.find_by(user_id: current_user&.id, comment_id: comment.id) %>
   <%= link_to "/comment_likes/#{comment.id}?count=#{count}", data: {"turbolinks" => false}, method: "delete", remote: true do %>
     <span class="fa fa-heart like-btn-unlike">いいね！<%= count %></span>
@@ -8,4 +10,14 @@
   <%= link_to "/comment_likes?comment_id=#{comment.id}&count=#{count}", data: {"turbolinks" => false}, method: "post", remote: true do %>
     <span class="fa fa-heart like-btn">いいね！<%= count unless count.zero? %></span>
   <% end %>
+<% end %>
+
+<% else %>
+
+<%= link_to new_user_session_path do %>
+  <span class="fa fa-heart like-btn">いいね！<%= count unless count.zero? %></span>
+
+<% end %>
+
+
 <% end %>

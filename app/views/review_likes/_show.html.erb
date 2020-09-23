@@ -14,8 +14,8 @@
 
 <% else %>
 
-  <%= link_to new_user_session_path do %>
-    <span class="fa fa-heart like-btn-unlike">いいね！<%= count %></span>
+<%= link_to new_user_session_path do %>
+  <span class="fa fa-heart like-btn">いいね！<%= count unless count.zero? %></span>
   <% end %>
 
 <% end %>
