@@ -15,7 +15,7 @@
   <p>感想</p>
   <%= form.text_area :content %>
 
-  <p>タグ（最大3つまで、","で区切る）</p>
+  <p>タグ（","で区切ってください）</p>
   <%= form.text_field :tag_list, value: @review.tag_list.join(',') %>
 
   <p>画像（任意）</p>

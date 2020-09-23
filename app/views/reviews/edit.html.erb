@@ -15,7 +15,8 @@
   <p>感想</p>
   <%= form.text_area :content %>
 
-  <p>タグ（実装予定）</p>
+  <p>タグ（","で区切ってください）</p>
+    <%= form.text_field :tag_list, value: @review.tag_list.join(',') %>
 
   <p>画像（任意）</p>
   <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png', id: "item-image" %>
