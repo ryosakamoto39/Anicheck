@@ -24,7 +24,6 @@ class ItemsController < ApplicationController
       flash[:notice] = "作成しました"
       redirect_to "/items/#{@item.id}"
     else
-      rollback
       flash.now[:notice] = "作成に失敗しました"
       render 'new'
     end
