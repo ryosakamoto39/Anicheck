@@ -15,7 +15,7 @@
   <p>感想</p>
   <%= form.text_area :content, size: "60x10" %>
 
-  <p>タグ（頭に"#"を付け、","で区切ってください）</p>
+  <p>タグ（","で区切ってください）</p>
   <%= form.text_field :tag_list, value: @review.tag_list.join(',') %>
 
   <%= form.hidden_field :item_id, value: @item.id %>
