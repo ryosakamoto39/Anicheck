@@ -26,7 +26,7 @@
   <div class="review-scroll-content">
     <div class="review-scroll-content-wrapper">
       <% if review.content.length > @digest_length %>
-        <%= review.content.slice(0..@digest_rength - 1).concat("…") %>
+        <%= review.content.slice(0..@digest_length - 1).concat("…") %>
       <% else %>
         <%= review.content %>
       <% end %>

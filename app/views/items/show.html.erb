@@ -15,9 +15,15 @@
     <%= image_tag @item.image.to_s %>
   </div>
 
+<% if user_signed_in? %>
   <div class ="item-botton">
     <p><a href="/reviews/new?item_id=<%= @item.id %>}" class="btn btn-primary btn-lg">この作品のレビューを書く</a></p>
   </div>
+<% else %>
+<div class ="item-botton">
+  <p><a href="/users/sign_in" class="btn btn-primary btn-lg">この作品のレビューを書く</a></p>
+</div>
+<% end %>
 
   <span class="watched-items">
     <%= render "watched_items/show" %>

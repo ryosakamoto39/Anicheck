@@ -13,17 +13,15 @@
    <%= form.select :score, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], { include_blank: '選択してください'} %>
 
   <p>感想</p>
-  <%= form.text_area :content %>
+  <%= form.text_area :content, size: "60x10" %>
 
-  <p>タグ（","で区切ってください）</p>
+  <p>タグ（頭に"#"を付け、","で区切ってください）</p>
   <%= form.text_field :tag_list, value: @review.tag_list.join(',') %>
-
-  <p>画像（任意）</p>
-  <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png', id: "item-image" %>
 
   <%= form.hidden_field :item_id, value: @item.id %>
   <%= form.hidden_field :user_id, value: current_user.id %>
 
+  <br><br>
   <p><%= form.submit value="投稿する", data: { disable_with: "送信中" } %></p>
 
 <% end %>

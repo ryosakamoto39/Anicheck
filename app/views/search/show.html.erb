@@ -11,8 +11,7 @@
   </div>
 
   <ul class="user-tabs">
-    <li class="<%= @type %>-" id="item"><%= link_to "作品(#{@items.count})", "/search?type=item&keyword=#{@keyword}", remote: true %></li>    
-    <li class="<%= @type %>-" id="tag"><%= link_to "タグ(#{@tags.count})", "/search?type=tag&keyword=#{@keyword}", remote: true %></li>
+    <li class="<%= @type %>-" id="item"><%= link_to "作品(#{@items.count})", "/search?type=item&keyword=#{@keyword}", remote: true %></li>
     <li class="<%= @type %>-" id="user"><%= link_to "ユーザー(#{@users.count})", "/search?type=user&keyword=#{@keyword}", remote: true %></li>
   </ul>
 

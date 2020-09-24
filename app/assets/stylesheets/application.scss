@@ -279,7 +279,7 @@
 
 .watched-items {
   font-size: 1.2rem;
-  margin-left: 30px;
+  margin-left: 50px;
 }
 
 .want-to-watch-items {
@@ -468,11 +468,19 @@ textarea#comment_content:focus {
   font-weight: 600;
 }
 
-.search-item-description, search-review-description {
+.search-item-description {
   font-size: 1.2rem;
   width: 90%;
   text-align: left;
   padding-bottom: 5px;
+}
+
+.search-review-description {
+  font-size: 1.2rem;
+  width: 90%;
+  text-align: left;
+  padding-bottom: 5px;
+  padding-top: 20px;
 }
 
 .search-item-description p {
