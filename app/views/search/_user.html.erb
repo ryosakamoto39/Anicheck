@@ -12,7 +12,7 @@
 
       <%= link_to(user.name, "/users/#{user.id}") %>
 
-      <% if @current_user %>        
+      <% if @current_user %>
         <% if @current_user.following.include?(user)  %>
           <span class="search-user-follow">(フォローしています)</span>
         <% end %>

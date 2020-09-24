@@ -1,13 +1,13 @@
 <div class="search-index-item">
   <div class="search-show-item">
     <%= link_to "/items/#{review.item_id}?review_id=#{review.id}" do %>
-        <%= image_tag review.item.image.url, alt: "商品の画像" %>
+        <%= image_tag review.item.image.url, alt: "商品の画像"  unless review.item == nil %>
     <% end %>
   </div>
 
   <div class="search-item-wrapper">
     <div class="search-review-title">
-      <%= link_to review.item.title, "/items/#{review.item_id}?review_id=#{review.id}" %>
+      <%= link_to review.item.title, "/items/#{review.item_id}?review_id=#{review.id}" unless review.item == nil %>
     </div>
 
     <div class="review-scroll-userimage">
@@ -18,7 +18,7 @@
 
     <div class="review-scroll-userside">
       <span class="review-scroll-username">
-        <%= link_to review.user.name, "/users/#{review.user_id}" %>
+        <%= link_to review.user.name, "/users/#{review.user_id}", :style=>"color:black;" %>
       </span>
 
       <span class="review-scroll-time">
