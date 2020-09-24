@@ -6,7 +6,7 @@
 
 <div class="review-user-right">
 <div class="review-user-name">
-<p><%= review.user.name %></p>
+  <p><%= link_to review.user.name, "/users/#{review.user_id}", :style=>"color:black;" %></p>
 </div>
 
 <div class="review-time">
@@ -26,7 +26,7 @@
       <% if review.tag_list.any? %>
         <% review.tag_list.each do |tag| %>
           <span class="review-tag" %>
-            <%= link_to "#" + tag, "/search?keyword=#{tag}" %>
+            <%= link_to "#" + tag, "/search?keyword=#{tag}", :style=>"color:black;" %>
           </span>
         <% end %>
       <% end %>
