@@ -2,9 +2,9 @@ class Item < ApplicationRecord
   validates :title, presence: true, length: { maximum: 30 }, uniqueness: true
   validates :story, presence: true, length: { maximum: 300 }
   mount_uploader :image, ImageUploader
-  has_many :reviews
-  has_many :want_to_watch_items
-  has_many :watched_items
+  has_many :reviews, dependent: :destroy
+  has_many :want_to_watch_items, dependent: :destroy
+  has_many :watched_items, dependent: :destroy
   acts_as_taggable
 
   def average_score

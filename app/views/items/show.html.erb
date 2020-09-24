@@ -36,7 +36,7 @@
 
   <div class="item-right">
     <h3 class="item-rate">
-      平均評価 ： <%= @average_rate.round(1) %> ／ 5.0 点
+      平均評価 ： <%= @average_rate.round(1) unless @average_rate == nil %> ／ 5.0 点
     </h3>
 
     <h5 class="item-story">

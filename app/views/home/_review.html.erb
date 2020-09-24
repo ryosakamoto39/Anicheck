@@ -1,6 +1,6 @@
 <li class="review-scroll-wrapper">
   <div class="review-scroll-title">
-    <%= review.item.title %>
+    <%= review.item.title unless review.item == nil %>
   </div>
 
   <div class="review-scroll-userimage">
@@ -33,7 +33,7 @@
     </div>
 
     <p class="review-scroll-span">
-      <%= link_to "続きを見る", "items/#{review.item.id}?review_id=#{review.id}" %>
+      <%= link_to "続きを見る", "items/#{review.item.id}?review_id=#{review.id}" unless review.item == nil %>
     </p>
 
   </div>
