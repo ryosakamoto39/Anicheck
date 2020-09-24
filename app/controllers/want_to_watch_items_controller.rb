@@ -21,5 +21,4 @@ class WantToWatchItemsController < ApplicationController
     end
   end
 
-
 end

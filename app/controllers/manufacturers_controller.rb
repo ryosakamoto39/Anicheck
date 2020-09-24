@@ -1,2 +1,0 @@
-class ManufacturersController < ApplicationController
-end
