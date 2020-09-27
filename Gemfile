@@ -20,11 +20,11 @@ gem 'i18n'
 gem 'devise'
 gem 'bootstrap', '~> 4.1.1'
 gem 'kaminari'
+gem 'mysql2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 #  gem 'sqlite3', '1.3.13'
-  gem 'mysql2'
   gem 'rspec-rails'
   gem 'capistrano'
   gem 'capistrano-bundler'
