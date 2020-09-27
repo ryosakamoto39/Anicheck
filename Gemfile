@@ -26,6 +26,10 @@ group :development, :test do
 #  gem 'sqlite3', '1.3.13'
   gem 'mysql2'
   gem 'rspec-rails'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -42,5 +46,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
+  gem 'unicorn'
 end
