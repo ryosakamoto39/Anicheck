@@ -11,8 +11,9 @@ default: &default
   adapter: mysql2
   username: root
   password:
-  host: 127.0.0.1
+  host: db
   encoding: utf8
+  pool: 5
 
 development:
   <<: *default
@@ -29,6 +30,5 @@ test:
 
 production:
   <<: *default
-  pool: 5
   database: Anicheck_production
   socket: /var/lib/mysql/mysql.sock
