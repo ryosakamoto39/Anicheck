@@ -21,6 +21,8 @@ gem 'devise'
 gem 'bootstrap', '~> 4.1.1'
 gem 'kaminari'
 gem 'mysql2'
+gem 'rubocop'
+gem 'rubocop-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
