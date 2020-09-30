@@ -2,9 +2,9 @@ FROM ruby:2.6.3
 
 # 必要なパッケージのインストール
 RUN apt-get update -qq && \
-    apt-get install -y build-essential \ 
-                       libpq-dev \        
-                       nodejs           
+    apt-get install -y build-essential \
+                       libpq-dev \
+                       nodejs
 
 # 作業ディレクトリの作成、設定
 RUN mkdir /app_name
@@ -17,5 +17,6 @@ ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
 # Gemfileのbundle install
+RUN gem install bundler
 RUN bundle install
 ADD . $APP_ROOT
