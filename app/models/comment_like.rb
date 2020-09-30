@@ -3,5 +3,4 @@ class CommentLike < ApplicationRecord
   validates :comment_id, presence: true
   belongs_to :user
   belongs_to :comment
-
 end

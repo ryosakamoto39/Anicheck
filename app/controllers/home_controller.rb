@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
   def top
     @digest_length = 60
     @item_select = 7
@@ -39,7 +38,5 @@ class HomeController < ApplicationController
 
     tag_select = 3
     @most_used_tags = ActsAsTaggableOn::Tag.most_used(tag_select)
-
   end
-
 end

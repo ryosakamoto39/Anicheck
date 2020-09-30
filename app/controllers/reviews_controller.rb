@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def new
     @review = Review.new
     @item = Item.find_by(id: params[:item_id])
@@ -10,10 +9,10 @@ class ReviewsController < ApplicationController
     @item = Item.find_by(id: params[:review][:item_id])
 
     if @review.save
-      flash[:notice] = "作成しました"
+      flash[:notice] = '作成しました'
       redirect_to "/items/#{@item.id}?review_id=#{@review.id}"
     else
-      flash.now[:notice] = "作成に失敗しました"
+      flash.now[:notice] = '作成に失敗しました'
       render 'new'
     end
   end
@@ -28,10 +27,10 @@ class ReviewsController < ApplicationController
     @review = Review.find_by(id: params[:id])
     @item = Item.find_by(id: params[:review][:item_id])
     if @review.update(review_params)
-      flash[:notice] = "変更しました"
+      flash[:notice] = '変更しました'
       redirect_to "/items/#{@item.id}?review_id=#{@review.id}"
     else
-      flash.now[:notice] = "更新に失敗しました"
+      flash.now[:notice] = '更新に失敗しました'
       render 'edit'
     end
   end
@@ -39,21 +38,20 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find_by(id: params[:id])
     if @review&.destroy
-      flash[:notice] = "レビューを削除しました"
+      flash[:notice] = 'レビューを削除しました'
       redirect_to "/items/#{@review.item_id}"
     else
-      flash[:notice] = "削除に失敗しました"
+      flash[:notice] = '削除に失敗しました'
       redirect_to "/items/#{@review.item_id}?review_id=#{@review.id}"
     end
   end
 
-    private
+  private
 
-      def review_params
-        params.require(:review).permit(
-        :content, :score, :item_id, :user_id, :image,
-        :tag_list
-        )
-      end
-
+  def review_params
+    params.require(:review).permit(
+      :content, :score, :item_id, :user_id, :image,
+      :tag_list
+    )
+  end
 end

@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def new
     @review_id = params[:review_id]
     respond_to do |format|
@@ -38,5 +37,4 @@ class CommentsController < ApplicationController
       format.js
     end
   end
-
 end

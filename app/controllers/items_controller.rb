@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
   def index
     @items = Item.page(params[:page]).per(10)
   end
@@ -22,10 +21,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:notice] = "作成しました"
+      flash[:notice] = '作成しました'
       redirect_to "/items/#{@item.id}"
     else
-      flash.now[:notice] = "作成に失敗しました"
+      flash.now[:notice] = '作成に失敗しました'
       render 'new'
     end
   end
@@ -33,27 +32,26 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id]).update(item_params)
     @item = Item.find(params[:id])
-    flash[:notice] = "更新しました"
+    flash[:notice] = '更新しました'
     redirect_to "/items/#{@item.id}"
   end
 
   def destroy
     @item = Item.find_by(id: params[:id])
     if @item&.destroy
-      flash[:notice] = "作品を削除しました"
+      flash[:notice] = '作品を削除しました'
       redirect_to items_path
     else
-      flash[:notice] = "削除に失敗しました"
+      flash[:notice] = '削除に失敗しました'
       redirect_to "/items/#{@item.id}"
     end
   end
 
-    private
+  private
 
-      def item_params
-        params.require(:item).permit(
-        :title, :story, :image
-      )
-      end
-
+  def item_params
+    params.require(:item).permit(
+      :title, :story, :image
+    )
+  end
 end

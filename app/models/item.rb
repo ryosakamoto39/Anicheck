@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   def self.rank
     border_score = 1 # 1点を超えない商品は除く
     weight = -3 # 5点満点のレビューで3点を0点、5点を2点として評価を再マッピングするために使用する
-  # 1点がたくさん集まるより、低評価が少なく、高得点のみを獲得している方が評価が高いため
+    # 1点がたくさん集まるより、低評価が少なく、高得点のみを獲得している方が評価が高いため
 
     original_score = Review.group(:item_id).sum(:score) # item_id毎にreviewのスコアを集計
     review_count = Review.group(:item_id).count # item毎のreviewを集計
@@ -33,39 +33,37 @@ class Item < ApplicationRecord
   end
 
   # 観た！の降順にidを返す
- def self.watched_ids
-   watched_count = WatchedItem.group(:item_id).count
-   watched_count.sort_by { |_, count| -count }.to_h.keys
- end
+  def self.watched_ids
+    watched_count = WatchedItem.group(:item_id).count
+    watched_count.sort_by { |_, count| -count }.to_h.keys
+  end
 
- # 観たい！の降順にidを返す
- def self.want_to_watch_ids
-   want_count = WantToWatchItem.group(:item_id).count
-   want_count.sort_by { |_, count| -count }.to_h.keys
- end
+  # 観たい！の降順にidを返す
+  def self.want_to_watch_ids
+    want_count = WantToWatchItem.group(:item_id).count
+    want_count.sort_by { |_, count| -count }.to_h.keys
+  end
 
- # あるタグが付いたレビューを持つ商品を、タグ付け回数の降順に返す
-   def self.tagged_desc(tag_name)
-     # 対象タグのidを割り出す
-     tag_id = ActsAsTaggableOn::Tag.find_by(name: tag_name).id
+  # あるタグが付いたレビューを持つ商品を、タグ付け回数の降順に返す
+  def self.tagged_desc(tag_name)
+    # 対象タグのidを割り出す
+    tag_id = ActsAsTaggableOn::Tag.find_by(name: tag_name).id
 
-     # 対象タグの付けられたreviewのidを割り出す
-     review_ids = ActsAsTaggableOn::Tagging.where(tag_id: tag_id).pluck(:taggable_id)
+    # 対象タグの付けられたreviewのidを割り出す
+    review_ids = ActsAsTaggableOn::Tagging.where(tag_id: tag_id).pluck(:taggable_id)
 
-     # 対象タグが付いたレビューをitem_id毎に数えることで、itemに対するtag付け回数を計算する
-     tag_count = Review.where(id: review_ids).group(:item_id).count
+    # 対象タグが付いたレビューをitem_id毎に数えることで、itemに対するtag付け回数を計算する
+    tag_count = Review.where(id: review_ids).group(:item_id).count
 
-     # item_idの配列を出現回数の降順に並び替え、ハッシュ化してキー(id)を取り出す
-     item_ids = tag_count.sort_by { |_, count| -count }.to_h.keys
+    # item_idの配列を出現回数の降順に並び替え、ハッシュ化してキー(id)を取り出す
+    item_ids = tag_count.sort_by { |_, count| -count }.to_h.keys
 
-     # 降順のidでtagを抽出する。orderを明示的に指定しなければ、tag_idsの順番通りにならない
-     Item.where(id: item_ids).order([Arel.sql('field(id, ?)'), item_ids])
-   end
+    # 降順のidでtagを抽出する。orderを明示的に指定しなければ、tag_idsの順番通りにならない
+    Item.where(id: item_ids).order([Arel.sql('field(id, ?)'), item_ids])
+  end
 
-   def self.search(keyword)
-     search = "%" + keyword + "%"
-     Item.eager_load(:reviews, :tags).where('items.title like ? or items.story like ? or tags.name like ?', search, search, search)
-   end
-
-
+  def self.search(keyword)
+    search = '%' + keyword + '%'
+    Item.eager_load(:reviews, :tags).where('items.title like ? or items.story like ? or tags.name like ?', search, search, search)
+  end
 end

@@ -1,19 +1,19 @@
 crumb :root do
-  link "トップ", root_path
+  link 'トップ', root_path
 end
 
 crumb :log_in do |root|
-  link "ログイン", new_user_session_path
+  link 'ログイン', new_user_session_path
   parent :root, root
 end
 
 crumb :sign_in do |root|
-  link "新規登録", new_user_registration_path
+  link '新規登録', new_user_registration_path
   parent :root, root
 end
 
 crumb :new_item do |root|
-  link "作品登録", new_item_path
+  link '作品登録', new_item_path
   parent :root, root
 end
 
@@ -23,7 +23,7 @@ crumb :user do |root|
 end
 
 crumb :message do |user|
-  link "メッセージ", room_path
+  link 'メッセージ', room_path
   parent :user, user
 end
 
@@ -33,12 +33,12 @@ crumb :item do |root|
 end
 
 crumb :search do |root|
-  link "検索結果", search_path
+  link '検索結果', search_path
   parent :root, root
 end
 
 crumb :item_list do |root|
-  link "作品一覧", items_path
+  link '作品一覧', items_path
   parent :root, root
 end
 

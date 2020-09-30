@@ -1,12 +1,11 @@
 class CommentLikesController < ApplicationController
-
   def create
     @comment = Comment.find(params[:comment_id])
     CommentLike.create(user_id: current_user.id, comment_id: @comment.id)
     @count = params[:count].to_i + 1
 
     respond_to do |format|
-        format.js
+      format.js
     end
   end
 
@@ -19,5 +18,4 @@ class CommentLikesController < ApplicationController
       format.js
     end
   end
-
 end

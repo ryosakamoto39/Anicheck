@@ -20,5 +20,4 @@ class ReviewLikesController < ApplicationController
       format.js
     end
   end
-
 end
