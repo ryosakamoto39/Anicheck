@@ -13,3 +13,7 @@ AllCops:
 # 日本語でのコメントを許可
 AsciiComments:
   Enabled: false
+
+Style/SpaceAroundOperators:
+  Severity: warning
+  AllowForAlignment: true 
