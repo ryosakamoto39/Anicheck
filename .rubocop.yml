@@ -8,6 +8,7 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'vendor/**/*'
+    - 'config/unicorn/production.rb'
 
 # 日本語でのコメントを許可
 AsciiComments:
