@@ -17,13 +17,13 @@ RSpec.describe CommentLike, type: :model do
     it 'is invalid without a user_id' do
       comment_like = CommentLike.new(user_id: nil, comment_id: comment.id)
       comment_like.valid?
-      expect(comment_like.errors[:user_id]).to include("can't be blank")
+      expect(comment_like.errors[:user_id]).to include("を入力してください")
     end
 
     it 'is inavlid without a comment_id' do
       comment_like = CommentLike.new(user_id: user.id, comment_id: nil)
       comment_like.valid?
-      expect(comment_like.errors[:comment_id]).to include("can't be blank")
+      expect(comment_like.errors[:comment_id]).to include("を入力してください")
     end
   end
 end

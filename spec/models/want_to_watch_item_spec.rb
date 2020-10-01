@@ -18,12 +18,12 @@ RSpec.describe WantToWatchItem, type: :model do
   it 'is invalid without a user_id' do
     want_to_watch_item = WantToWatchItem.new(user_id: nil, item_id: item.id)
     want_to_watch_item.valid?
-    expect(want_to_watch_item.errors[:user_id]).to include("can't be blank")
+    expect(want_to_watch_item.errors[:user_id]).to include("を入力してください")
   end
 
   it 'is invalid without a item_id' do
     want_to_watch_item = WantToWatchItem.new(user_id: user.id, item_id: nil)
     want_to_watch_item.valid?
-    expect(want_to_watch_item.errors[:item_id]).to include("can't be blank")
+    expect(want_to_watch_item.errors[:item_id]).to include("を入力してください")
   end
 end

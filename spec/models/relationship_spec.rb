@@ -14,13 +14,13 @@ RSpec.describe Relationship, type: :model do
     it 'is invalid without a follower_id' do
       relationship = Relationship.new(follower_id: nil, followed_id: User.first.id)
       relationship.valid?
-      expect(relationship.errors[:follower_id]).to include("can't be blank")
+      expect(relationship.errors[:follower_id]).to include("を入力してください")
     end
 
     it 'is invalid without a followed_id' do
       relationship = Relationship.new(follower_id: User.first.id, followed_id: nil)
       relationship.valid?
-      expect(relationship.errors[:followed_id]).to include("can't be blank")
+      expect(relationship.errors[:followed_id]).to include("を入力してください")
     end
   end
 
