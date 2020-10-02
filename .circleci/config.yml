@@ -83,6 +83,9 @@ jobs:
           - "3c:8a:27:1b:3d:51:4d:d1:a8:8d:51:e2:d7:9c:82:56"
 
       - deploy:
-          name: Capistrano deploy
-          command:
-　　　　　　  bundle exec cap production deploy
+        name: Capistrano deploy
+        command: |
+          if [ "${CIRCLE_BRANCH}" != "master" ]; then
+            exit 0
+          fi
+          bundle exec cap production deploy
