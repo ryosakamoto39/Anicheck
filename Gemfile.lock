@@ -55,6 +55,7 @@ GEM
     autoprefixer-rails (10.0.1.0)
       execjs
     bcrypt (3.1.16)
+    bcrypt_pbkdf (1.0.1)
     bindex (0.8.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
@@ -112,6 +113,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    ed25519 (1.2.4)
     erubi (1.9.0)
     execjs (2.7.0)
     factory_bot (6.1.0)
@@ -321,6 +323,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 6.0)
+  bcrypt_pbkdf
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.1.1)
   byebug
@@ -333,6 +336,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  ed25519
   factory_bot_rails
   faker
   gretel
