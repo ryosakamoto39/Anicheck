@@ -14,108 +14,126 @@ User.create!(name: '合田美桜',
              email: 'user01@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/1.png"),
              admin: false)
 #
 User.create!(name: '市原由奈',
              email: 'user02@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/2.png"),
              admin: false)
 #
 User.create!(name: '天野のぞみ',
              email: 'user03@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/3.png"),
              admin: false)
 #
 User.create!(name: '綾音',
              email: 'user04@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/4.png"),
              admin: false)
 #
 User.create!(name: '藤原千花',
              email: 'user05@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/5.png"),
              admin: false)
 #
 User.create!(name: 'あおい',
              email: 'user06@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/6.png"),
              admin: false)
 #
 User.create!(name: 'もなか',
              email: 'user07@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/7.png"),
              admin: false)
 #
 User.create!(name: 'エリカ',
              email: 'user08@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/8.png"),
              admin: false)
 #
 User.create!(name: 'サヤ',
              email: 'user09@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/9.png"),
              admin: false)
 #
 User.create!(name: '神尾ひびき',
              email: 'user10@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/10.png"),
              admin: false)
 #
 User.create!(name: '綾時ハヤテ',
              email: 'user11@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/11.png"),
              admin: false)
 #
 User.create!(name: '東条秀明',
              email: 'user12@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/12.png"),
              admin: false)
 #
 User.create!(name: 'りょうま',
              email: 'user13@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/13.png"),
              admin: false)
 #
 User.create!(name: '走一郎',
              email: 'user14@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/14.png"),
              admin: false)
 #
 User.create!(name: 'ジン',
              email: 'user15@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/15.png"),
              admin: false)
 #
 User.create!(name: '泉鏡花',
              email: 'user16@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/16.png"),
              admin: false)
 #
 User.create!(name: '水原光太',
              email: 'user17@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/17.png"),
              admin: false)
 #
 User.create!(name: 'あゆむ',
              email: 'user18@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/18.png"),
              admin: false)
 #
 User.create!(name: 'スバル',
@@ -129,6 +147,15 @@ User.create!(name: '葵ゆうた',
              password: '00000000',
              password_confirmation: '00000000',
              admin: false)
+#
+
+#Item.Create!(
+#  title:
+#  story:
+
+#)
+
+
 #
 #Review.create!(
 #  user_id: ,

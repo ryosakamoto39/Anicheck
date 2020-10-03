@@ -35,14 +35,22 @@
   </div>
 
   <div class="field">
+    <%= f.label :プロフィール画像（任意） %><br/>
+    <%= f.file_field :image %>
+  </div>
+  <br>
+
+  <div class="field">
     <%= f.label :現在のパスワード %> <i>（更新がある場合は入力）</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
+  <br>
 
   <div class="actions">
     <%= f.submit "情報を更新する" %>
   </div>
 <% end %>
+  <br>
 
 <h3>アカウントを削除する場合</h3>
 
