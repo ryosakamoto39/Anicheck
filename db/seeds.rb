@@ -64,7 +64,7 @@ User.create!(name: 'サヤ',
              password_confirmation: '00000000',
              admin: false)
 #
-User.create!(name: '神尾アキラ',
+User.create!(name: '神尾ひびき',
              email: 'user10@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
@@ -130,21 +130,21 @@ User.create!(name: '葵ゆうた',
              password_confirmation: '00000000',
              admin: false)
 #
-Review.create!(
-  user_id: ,
-  item_id: ,
-  content: '',
-  score: ,
-  tag_list: %w[],
-)
+#Review.create!(
+#  user_id: ,
+#  item_id: ,
+#  content: '',
+#  score: ,
+#  tag_list: %w[],
+#)
 
 # *70ほど
 
 
-Review.all.sample(Review.count).each_with_index do |review, i|
-  time = Time.zone.now - (12 * i).hours
-  review.update_attribute(:created_at, time)
-end
+#Review.all.sample(Review.count).each_with_index do |review, i|
+#  time = Time.zone.now - (12 * i).hours
+#  review.update_attribute(:created_at, time)
+#end
 
 #User.where.each do |user|
 #  Review.where.sample(15).each do |review|
