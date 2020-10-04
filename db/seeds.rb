@@ -285,25 +285,24 @@ Review.all.sample(Review.count).each_with_index do |review, i|
   review.update_attribute(:created_at, time)
 end
 
-#sample数は5くらいを想定
+#レビューにいいねをつける
 User.where.not(id: [admin.id]).each do |user|
   Review.all.sample(5).each do |review|
     ReviewLike.create!(user_id: user.id, review_id: review.id)
   end
 end
 
-
 #レビューにコメントをつける
-#reviewのsampleで一人 x 票
-#テストユーザーも投票している（おk）
-#コメントの中身は10種類用意しておく
-#コメントのように時間をずらす
-
-comment_examples = ['a', 'b', 'c', 'd', 'e']
+comment_examples = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 User.where.not(id: [admin.id]).each do |user|
   Review.all.sample(2).each do |review|
     Comment.create!(content: comment_examples.sample, user_id: user.id, review_id: review.id)
   end
+end
+
+Comment.all.sample(Comment.count).each_with_index do |comment, i|
+  time = Time.zone.now - (13 * i).minutes
+  comment.update_attribute(:created_at, time)
 end
 
 #観た！をつける
@@ -328,3 +327,8 @@ User.where.not(id: [admin.id]).each do |user|
 end
 
 #フォローをつける
+User.where.not(id: [admin.id]).each do |user|
+  User.where.not(id: [admin.id, user.id]).sample(15).each do |other|
+    user.follow(other)
+  end
+end
