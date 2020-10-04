@@ -4,7 +4,7 @@ admin = User.create!(name: '管理者',
              password_confirmation: '11111111',
              admin: true)
 
-test_user = User.create!(name: 'テストユーザー',
+User.create!(name: 'テストユーザー',
              email: 'user00@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
@@ -285,8 +285,46 @@ Review.all.sample(Review.count).each_with_index do |review, i|
   review.update_attribute(:created_at, time)
 end
 
+#sample数は5くらいを想定
 User.where.not(id: [admin.id]).each do |user|
-  Review.all.sample(3).each do |review|
+  Review.all.sample(5).each do |review|
     ReviewLike.create!(user_id: user.id, review_id: review.id)
   end
 end
+
+
+#レビューにコメントをつける
+#reviewのsampleで一人 x 票
+#テストユーザーも投票している（おk）
+#コメントの中身は10種類用意しておく
+#コメントのように時間をずらす
+
+comment_examples = ['a', 'b', 'c', 'd', 'e']
+User.where.not(id: [admin.id]).each do |user|
+  Review.all.sample(2).each do |review|
+    Comment.create!(content: comment_examples.sample, user_id: user.id, review_id: review.id)
+  end
+end
+
+#観た！をつける
+User.where.not(id: [admin.id]).each do |user|
+  Item.all.sample(7).each do |item|
+    WatchedItem.create!(user_id: user.id, item_id: item.id)
+  end
+end
+
+#観たい！をつける
+User.where.not(id: [admin.id]).each do |user|
+  Item.all.sample(8).each do |item|
+    WantToWatchItem.create!(user_id: user.id, item_id: item.id)
+  end
+end
+
+#コメントにいいねをつける
+User.where.not(id: [admin.id]).each do |user|
+  Comment.all.sample(8).each do |comment|
+    CommentLike.create!(user_id: user.id, comment_id: comment.id)
+  end
+end
+
+#フォローをつける

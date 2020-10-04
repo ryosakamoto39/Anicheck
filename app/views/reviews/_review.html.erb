@@ -64,8 +64,8 @@
 
 <% if user_signed_in? %>
   <% if current_user&.admin? || review.user_id == current_user.id %>
-      <p><%= link_to "編集", "/reviews/#{review.id}/edit" %>
-      <%= link_to "削除", "/reviews/#{review.id}", method: "delete",
+      <p><%= link_to "レビュー編集", "/reviews/#{review.id}/edit" %>
+      <%= link_to "レビュー削除", "/reviews/#{review.id}", method: "delete",
           data: { confirm: '一度削除すると元に戻すことはできません。本当に削除してよろしいでしょうか？' } %></p>
   <% end %>
 <% end %>
