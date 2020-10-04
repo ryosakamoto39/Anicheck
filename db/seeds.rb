@@ -1,10 +1,10 @@
-User.create!(name: '管理者',
+admin = User.create!(name: '管理者',
              email: 'admin@gmail.com',
              password: '11111111',
              password_confirmation: '11111111',
              admin: true)
 
-User.create!(name: 'テストユーザー',
+test_user = User.create!(name: 'テストユーザー',
              email: 'user00@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
@@ -238,7 +238,37 @@ Item.create!(
   image: File.open("./public/default/items/14.jpg"),
 )
 
-#
+Review.create!(
+  user_id: 3,
+  item_id: 1,
+  content: 'TVシリーズアニメでこのレベルで面白かったのは久しぶり。
+当然それなりに突っ込みどころはあるがそれをとりあえず脇に置いといても物語の先へ先へと視させる力はかなりのもの。',
+  score: 4,
+  tag_list: %w[イッキ観 厨二病 感動],
+)
+
+Review.create!(
+  user_id: 4,
+  item_id: 1,
+  content: '面白さの要素としては現実で起きたタイムトラベルに関する都市伝説的な事件までも物語の重要なネタにしてたり（その辺を予備知識として頭に入れておくとさらに面白く感じるかもしれない）、更にはネットで使われるスラングや慣用句等の小ネタ・声優ネタとも取れるようなニヤリと笑えるような面白いところもあったりと、とにかくマニアックな人達に受ける。
+なかなかに凝った作りをしている。ある意味セカイ系のように比較的少ない登場人物とそれ故の閉じた人間関係だけで物語を展開させていく単純さも、物語を分かりやすく面白くするのに一役買っているのではないでしょうか。',
+  score: 4,
+  tag_list: %w[],
+)
+
+Review.create!(
+  user_id: 5,
+  item_id: 1,
+  content: '・主人公の岡部倫太郎は某理系私立大に通う中二病患者。
+・秋葉原に研究所を構えて活動するとか、なんともオタ充。
+・ラボメン（研究所メンバー）は、一曲あるやつばかり。
+・商品や組織はもちろん、地域すら文字ったりするのがアニメの基本だが、本作品は秋葉原はもちろんのこと、大学やお店名など、実物のものを使っている。
+　タイムリープ系ということで、どう作品に集中させるかが重要ポイントだと思うが、SF理論の設定（実在（？）するジョンタイターの理論を昇華させたものではあるが）だけでなく、こういった細かい設定のリアル感を増した原因と思われる。
+★自分としては、今までにない作品。',
+  score: 5,
+  tag_list: %w[厨二病 オタク タイムリープ],
+)
+
 #Review.create!(
 #  user_id: ,
 #  item_id: ,
@@ -250,13 +280,13 @@ Item.create!(
 # *70ほど
 
 
-#Review.all.sample(Review.count).each_with_index do |review, i|
-#  time = Time.zone.now - (12 * i).hours
-#  review.update_attribute(:created_at, time)
-#end
+Review.all.sample(Review.count).each_with_index do |review, i|
+  time = Time.zone.now - (12 * i).hours
+  review.update_attribute(:created_at, time)
+end
 
-#User.where.each do |user|
-#  Review.where.sample(15).each do |review|
-#    ReviewLike.create!(user_id: user.id, review_id: review.id)
-#  end
-#end
+User.where.not(id: [admin.id]).each do |user|
+  Review.all.sample(3).each do |review|
+    ReviewLike.create!(user_id: user.id, review_id: review.id)
+  end
+end
