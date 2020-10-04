@@ -18,7 +18,7 @@ crumb :new_item do |root|
 end
 
 crumb :user do |root|
-  link User.find(params[:id]).name, user_path
+  link 'ユーザー', user_path
   parent :root, root
 end
 

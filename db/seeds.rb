@@ -8,6 +8,7 @@ User.create!(name: 'テストユーザー',
              email: 'user00@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/test_user.png"),
              admin: false)
 #
 User.create!(name: '合田美桜',
@@ -140,12 +141,15 @@ User.create!(name: 'スバル',
              email: 'user19@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/19.png"),
              admin: false)
+
 #
 User.create!(name: '葵ゆうた',
              email: 'user20@gmail.com',
              password: '00000000',
              password_confirmation: '00000000',
+             image: File.open("./public/default/users/20.png"),
              admin: false)
 #
 
