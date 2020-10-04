@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   validates :score, presence: true
-  validates :content, presence: true, length: { maximum: 400 }
+  validates :content, presence: true
   validates :user_id, presence: true
   validates :item_id, presence: true
   default_scope -> { order(created_at: :desc) }
