@@ -18,13 +18,13 @@ crumb :new_item do |root|
 end
 
 crumb :user do |root|
-  link 'ユーザー', user_path
+  link User.find(params[:id]).name, user_path
   parent :root, root
 end
 
-crumb :message do |user|
+crumb :message do |root|
   link 'メッセージ', room_path
-  parent :user, user
+  parent :root, root
 end
 
 crumb :item do |root|

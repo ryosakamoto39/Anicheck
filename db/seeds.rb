@@ -1878,3 +1878,26 @@ User.where.not(id: [admin.id]).each do |user|
     user.follow(other)
   end
 end
+
+#メッセージをつける
+# User.where.not(id: [admin.id]).each do |user|
+#   User.where.note(id: [admin.id, user.id]).each do |other|
+#
+#
+# テストユーザーから、すべてのidに対してメッセージを送る(each)
+
+Room.create!(user_id: 3)
+Entry.create!(user_id: 2, room_id:1)
+Entry.create!(user_id: 3, room_id:1)
+Message.create!(user_id: 2, room_id:1, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+#ユーザーを決める
+# テストユーザーは固定(id=2)
+# user_id
+# room_id
+# #ルームをつくる
+# user_id (id= 3~22)
+# #メッセージを決める
+# user_id
+# room_id
+# content
