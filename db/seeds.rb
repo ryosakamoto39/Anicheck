@@ -1880,24 +1880,102 @@ User.where.not(id: [admin.id]).each do |user|
 end
 
 #メッセージをつける
-# User.where.not(id: [admin.id]).each do |user|
-#   User.where.note(id: [admin.id, user.id]).each do |other|
-#
-#
-# テストユーザーから、すべてのidに対してメッセージを送る(each)
-
 Room.create!(user_id: 3)
 Entry.create!(user_id: 2, room_id:1)
 Entry.create!(user_id: 3, room_id:1)
 Message.create!(user_id: 2, room_id:1, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
 
-#ユーザーを決める
-# テストユーザーは固定(id=2)
-# user_id
-# room_id
-# #ルームをつくる
-# user_id (id= 3~22)
-# #メッセージを決める
-# user_id
-# room_id
-# content
+Room.create!(user_id: 4)
+Entry.create!(user_id: 2, room_id:2)
+Entry.create!(user_id: 4, room_id:2)
+Message.create!(user_id: 2, room_id:2, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 5)
+Entry.create!(user_id: 2, room_id:3)
+Entry.create!(user_id: 5, room_id:3)
+Message.create!(user_id: 2, room_id:3, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 6)
+Entry.create!(user_id: 2, room_id:4)
+Entry.create!(user_id: 6, room_id:4)
+Message.create!(user_id: 2, room_id:4, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 7)
+Entry.create!(user_id: 2, room_id:5)
+Entry.create!(user_id: 7, room_id:5)
+Message.create!(user_id: 2, room_id:5, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 8)
+Entry.create!(user_id: 2, room_id:6)
+Entry.create!(user_id: 8, room_id:6)
+Message.create!(user_id: 2, room_id:6, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 9)
+Entry.create!(user_id: 2, room_id:7)
+Entry.create!(user_id: 9, room_id:7)
+Message.create!(user_id: 2, room_id:7, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 10)
+Entry.create!(user_id: 2, room_id:8)
+Entry.create!(user_id: 10, room_id:8)
+Message.create!(user_id: 2, room_id:8, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 11)
+Entry.create!(user_id: 2, room_id:9)
+Entry.create!(user_id: 11, room_id:9)
+Message.create!(user_id: 2, room_id:9, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 12)
+Entry.create!(user_id: 2, room_id:10)
+Entry.create!(user_id: 12, room_id:10)
+Message.create!(user_id: 2, room_id:10, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 13)
+Entry.create!(user_id: 2, room_id:11)
+Entry.create!(user_id: 13, room_id:11)
+Message.create!(user_id: 2, room_id:11, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 14)
+Entry.create!(user_id: 2, room_id:12)
+Entry.create!(user_id: 14, room_id:12)
+Message.create!(user_id: 2, room_id:12, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 15)
+Entry.create!(user_id: 2, room_id:13)
+Entry.create!(user_id: 15, room_id:13)
+Message.create!(user_id: 2, room_id:13, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 16)
+Entry.create!(user_id: 2, room_id:14)
+Entry.create!(user_id: 16, room_id:14)
+Message.create!(user_id: 2, room_id:14, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 17)
+Entry.create!(user_id: 2, room_id:15)
+Entry.create!(user_id: 17, room_id:15)
+Message.create!(user_id: 2, room_id:15, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 18)
+Entry.create!(user_id: 2, room_id:16)
+Entry.create!(user_id: 18, room_id:16)
+Message.create!(user_id: 2, room_id:16, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 19)
+Entry.create!(user_id: 2, room_id:17)
+Entry.create!(user_id: 19, room_id:17)
+Message.create!(user_id: 2, room_id:17, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 20)
+Entry.create!(user_id: 2, room_id:18)
+Entry.create!(user_id: 20, room_id:18)
+Message.create!(user_id: 2, room_id:18, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 21)
+Entry.create!(user_id: 2, room_id:19)
+Entry.create!(user_id: 21, room_id:19)
+Message.create!(user_id: 2, room_id:19, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
+
+Room.create!(user_id: 22)
+Entry.create!(user_id: 2, room_id:20)
+Entry.create!(user_id: 22, room_id:20)
+Message.create!(user_id: 2, room_id:20, content: 'はじめまして！貴方のレビューが大変参考になったので、メッセージを送らせていただきました。これからも投稿してくださるレビューを楽しみにしておりますので、どうぞよろしくお願いいたします！')
