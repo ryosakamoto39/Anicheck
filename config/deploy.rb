@@ -5,7 +5,7 @@ lock '3.14.1'
 set :application, 'Anicheck'
 
 # cloneするgitのレポジトリ
-set :repo_url, 'git@github.com:ryosakamoto39/Anicheck.git'
+set :repo_url, 'https://github.com/ryosakamoto39/Anicheck.git'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, 'master'
