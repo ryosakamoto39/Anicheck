@@ -1,24 +1,98 @@
-# README
+# Anicheck（アニチェック）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+「アニメを通じて人とつながる」をコンセプトとしたレビューサイトです。
 
-Things you may want to cover:
+「レビューの閲覧や投稿」、「検索機能」、「観た、観たい作品のメモ」、「興味のあるユーザーへのメッセージ」を通じて、「感想や情報をシェアして楽しむツール」としてご利用いただけます。
 
-* Ruby version
+URL: http://anicheck.net
 
-* System dependencies
+![anicheck_top](https://user-images.githubusercontent.com/66544830/95273672-9abe5b00-087e-11eb-8d59-e21dc4b5d0d0.png)
 
-* Configuration
+## 構成
 
-* Database creation
+* インフラ
 
-* Database initialization
+ * AWS（ EC2 / Route53 / RDS / VPC )
 
-* How to run the test suite
+ * Docker / Docker-Compose
 
-* Services (job queues, cache servers, search engines, etc.)
+* フロントエンド
 
-* Deployment instructions
+ * Javascript / jQuery / HTML / CSS
 
-* ...
+* バックエンド
+
+ * Ruby 2.6.3
+
+ * Rails 5.2.4
+
+* Webサーバー
+
+ * Nginx
+
+* APサーバー
+
+ * Unicorn
+
+* データベース
+
+ * RDS for MySQL 5.7
+
+* CI
+ * CircleCI / Rubocop / Rspec / Capistrano
+
+## クラウドアーキテクチャ
+
+![ca](https://user-images.githubusercontent.com/66544830/95276093-34890680-0885-11eb-9128-bbe124d73dad.png)
+
+## 特に見ていただきたい点
+
+* レビューサービス × 好きなユーザーへのダイレクトメッセージ機能
+
+ * レビューサービスの多くでは、誰がレビューを書いたかはわかるものの、ユーザーとの交流方法は、レビューへのいいねやコメントに限られます。
+
+    当サイトでは、気に入ったユーザーに直接メッセージを送る機能を搭載しており、より深いコミュニケーションを行うことが可能になっています。
+
+* 商品ページ、レビュー、コメントの全てを1つのページで表示
+
+  * 参考にした漫画や映画のレビューサイトでは、漫画や映画の紹介ページと個々のレビューページが独立したURLになっているものがあり、レビューを見るときに元のページを離れてしまうため、情報が分散してしまっているように思われました。
+
+      レビューの1件1件はそれほど多くの情報量ではないため、あえて別のページを用意する必要もないと考え、全てを単一のページに表示する仕様にしました。
+
+## 機能一覧
+
+* 全ユーザーが利用可能
+
+ * かんたんログイン
+
+ * 検索機能
+
+ * ランキング表示機能
+
+ * ユーザー登録機能
+
+ * ブラウザを閉じてもセッション維持（次回からログインを省略）
+
+ * パスワード再設定機能
+
+ * ぱんくずリスト
+
+* 管理者ユーザーのみ利用可能
+
+ * 作品投稿
+
+ * 作品一覧
+
+* 一般ユーザーのみ利用可能
+
+ * 作品レビュー投稿
+
+ * コメント機能
+
+ * 観た！ / 観たい！の作品メモ機能
+
+ * フォロー機能
+
+ * 作品レビュー時のタグ付け機能
+
+ * レビュー / コメントへのいいね機能
