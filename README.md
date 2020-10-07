@@ -12,9 +12,9 @@ URL: http://anicheck.net
 
 * インフラ
 
- * AWS（ EC2 / Route53 / RDS / VPC )
+  - AWS（ EC2 / Route53 / RDS / VPC )
 
- * Docker / Docker-Compose
+  - Docker / Docker-Compose
 
 * フロントエンド
 
