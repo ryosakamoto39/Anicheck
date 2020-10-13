@@ -22,6 +22,11 @@ crumb :user do |root|
   parent :root, root
 end
 
+crumb :edit_user do |root|
+  link 'プロフィール更新', edit_user_registration_path
+  parent :root, root
+end
+
 crumb :message do |root|
   link 'メッセージ', room_path
   parent :root, root
