@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url:session_path(resource_name)) do |f| %>
 <%= f.hidden_field :email ,value: "admin@gmail.com" %>
 <%= f.hidden_field :password ,value: "11111111" %>
-<%= f.submit "管理者としてログイン" %>
+<input type="submit" value="管理者としてログイン" class="btn btn-outline-secondary">
 <% end %>

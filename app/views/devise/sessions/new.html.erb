@@ -1,6 +1,7 @@
 <% provide(:title,"ログイン") %>
 <% breadcrumb :log_in %>
 
+
 <div class="main">
 <h2>ログイン</h2>
 
@@ -18,7 +19,7 @@
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :次回からログインを省略 %>
+      <%= f.label :ログイン情報を保持する %>
     </div>
   <% end %>
 
