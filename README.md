@@ -43,7 +43,7 @@ URL: https://anicheck.net
 
 ## クラウドアーキテクチャ
 
-![ca](https://user-images.githubusercontent.com/66544830/95276093-34890680-0885-11eb-9128-bbe124d73dad.png)
+![ca](https://user-images.githubusercontent.com/66544830/95955499-de453600-0e37-11eb-8b1b-92a20052381d.png)
 
 ## 特に見ていただきたい点
 

@@ -14,7 +14,7 @@ set :branch, 'master'
 set :deploy_to, '/var/www/Anicheck'
 
 # シンボリックリンクをはるファイル。
-set :linked_files, %w{ config/secrets.yml }
+set :linked_files, #%w{ config/secrets.yml }
 #fetch(:linked_files, []).push('config/settings.yml')
 
 # シンボリックリンクをはるフォルダ。
@@ -55,7 +55,7 @@ namespace :deploy do
   end
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
-  
+
 
   desc 'Create database'
   task :db_create do
