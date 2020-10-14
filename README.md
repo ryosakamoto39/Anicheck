@@ -38,7 +38,7 @@ URL: https://anicheck.net
 
   - RDS for MySQL 5.7
 
-* CI
+* CI / CD
   - CircleCI / Rubocop / Rspec / Capistrano
 
 ## クラウドアーキテクチャ
