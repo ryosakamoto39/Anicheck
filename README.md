@@ -4,7 +4,7 @@
 
 「レビューの閲覧や投稿」、「検索機能」、「観た、観たい作品のメモ」、「興味のあるユーザーへのメッセージ」を通じて、「感想や情報をシェアして楽しむツール」としてご利用いただけます。
 
-URL: http://anicheck.net
+URL: https://anicheck.net
 
 ![anicheck_top](https://user-images.githubusercontent.com/66544830/95273672-9abe5b00-087e-11eb-8d59-e21dc4b5d0d0.png)
 
