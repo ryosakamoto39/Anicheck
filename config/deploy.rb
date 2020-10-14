@@ -14,7 +14,7 @@ set :branch, 'master'
 set :deploy_to, '/var/www/Anicheck'
 
 # シンボリックリンクをはるファイル。
-set :linked_files, %w{ config/secrets.yml }
+set :linked_files#, %w{ config/secrets.yml }
 #fetch(:linked_files, []).push('config/settings.yml')
 
 # シンボリックリンクをはるフォルダ。
@@ -44,17 +44,17 @@ namespace :deploy do
   end
 
 #config/secrets.ymlを本番環境のshared/config/secrets.ymlに反映するための設定
-  desc 'upload secrets.yml'
-  task :upload do
-    on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
-      end
-      upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
-    end
-  end
-  before :starting, 'deploy:upload'
-  after :finishing, 'deploy:cleanup'
+#  desc 'upload secrets.yml'
+#  task :upload do
+#    on roles(:app) do |host|
+#      if test "[ ! -d #{shared_path}/config ]"
+#        execute "mkdir -p #{shared_path}/config"
+#      end
+#      upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
+#    end
+#  end
+#  before :starting, 'deploy:upload'
+#  after :finishing, 'deploy:cleanup'
 
 
   desc 'Create database'
