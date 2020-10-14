@@ -80,4 +80,4 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "3c:8a:27:1b:3d:51:4d:d1:a8:8d:51:e2:d7:9c:82:56"
+            -"3c:8a:27:1b:3d:51:4d:d1:a8:8d:51:e2:d7:9c:82:56"
