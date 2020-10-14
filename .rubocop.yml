@@ -9,6 +9,7 @@ AllCops:
     - 'db/schema.rb'
     - 'vendor/**/*'
     - 'config/unicorn/production.rb'
+    - 'config/deploy.rb'
 
 # 日本語でのコメントを許可
 AsciiComments:
@@ -16,4 +17,4 @@ AsciiComments:
 
 Style/SpaceAroundOperators:
   Severity: warning
-  AllowForAlignment: true 
+  AllowForAlignment: true
