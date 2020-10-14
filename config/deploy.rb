@@ -43,7 +43,7 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
-config/secrets.ymlを本番環境のshared/config/secrets.ymlに反映するための設定
+#config/secrets.ymlを本番環境のshared/config/secrets.ymlに反映するための設定
   desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
