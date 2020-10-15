@@ -18,14 +18,12 @@
   <p>タグ（","で区切ってください）</p>
     <%= form.text_field :tag_list, value: @review.tag_list.join(',') %>
 
-  <p>画像（任意）</p>
-  <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png', id: "item-image" %>
-
   <%= form.hidden_field :item_id, value: @item.id %>
   <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <p><%= form.submit value="投稿する", data: { disable_with: "送信中" } %></p>
+<br><br>
 
+  <input type="submit" value="投稿する" class="btn btn-primary">
 <% end %>
 
 </div>

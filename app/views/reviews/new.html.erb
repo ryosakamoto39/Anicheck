@@ -2,7 +2,7 @@
 
 <div class="main">
 <h2>レビュー投稿</h2>
-
+<br>
 <%= form_with(model: @review, local: true) do |form| %>
 
   <% @review.errors.full_messages.each do |message| %>
@@ -12,7 +12,11 @@
   <p>スコア（5点満点）</p>
    <%= form.select :score, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], { include_blank: '選択してください'} %>
 
-  <p>感想</p>
+<br><br>
+
+  <p>レビュー内容<br>
+    <font color="red">&lt;div class="netabare"&gt;</font>文章<font color="red">&lt;/div&gt;</font>で囲うと、ぼかし機能がつきます
+  </p>
   <%= form.text_area :content, size: "60x10" %>
 
   <p>タグ（","で区切ってください）</p>
