@@ -9,6 +9,7 @@ class Review < ApplicationRecord
   belongs_to :item
   has_many :review_likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   acts_as_taggable
 
   def self.popular_ids
