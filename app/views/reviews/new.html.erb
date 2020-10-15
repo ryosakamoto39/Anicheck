@@ -22,7 +22,7 @@
   <%= form.hidden_field :user_id, value: current_user.id %>
 
   <br><br>
-  <p><%= form.submit value="投稿する", data: { disable_with: "送信中" } %></p>
+  <input type="submit" value="投稿する" class="btn btn-primary">
 
 <% end %>
 </div>
