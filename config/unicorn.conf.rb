@@ -1,4 +1,4 @@
-$worker  = 2
+$worker = 2
   $timeout = 30
   $app_dir = "/anicheck" #自分のアプリケーションまでのpath
   $listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir

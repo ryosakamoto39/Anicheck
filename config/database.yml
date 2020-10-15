@@ -18,6 +18,7 @@ default: &default
 development:
   <<: *default
   database: anicheck_development
+  charset: utf8
 #  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and

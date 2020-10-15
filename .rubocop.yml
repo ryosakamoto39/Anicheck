@@ -10,6 +10,7 @@ AllCops:
     - 'vendor/**/*'
     - 'config/unicorn/production.rb'
     - 'config/deploy.rb'
+    - 'config/unicorn.conf.rb'
 
 # 日本語でのコメントを許可
 AsciiComments:
