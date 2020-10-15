@@ -17,6 +17,11 @@ services:
       - tmp-data:/anicheck/tmp/sockets
       #画像データとかをnginxと共有
       - public-data:/anicheck/public
+      # 1. exclude volumes
+      - /app/vendor
+      - /app/tmp
+      - /app/log
+      - /app/.git
 
   db:
     image: mysql:5.7
