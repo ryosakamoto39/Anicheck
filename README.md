@@ -34,7 +34,7 @@ URL: https://anicheck.net
 
 * インフラ
 
-  - AWS（ EC2 / Route53 / RDS / VPC )
+  - AWS（ EC2 / Route53 / RDS / VPC / ALB / S3 )
 
   - Docker / Docker-Compose
 
