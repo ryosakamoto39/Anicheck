@@ -4,8 +4,8 @@ class ReviewLikesController < ApplicationController
   def create
     @review = Review.find(params[:review_id])
     ReviewLike.create(user_id: current_user.id, review_id: @review.id)
+    @review.create_notification_like!(current_user)
     @count = params[:count].to_i + 1
-    post.create_notification_like!(current_user)
 
     respond_to do |format|
       format.js

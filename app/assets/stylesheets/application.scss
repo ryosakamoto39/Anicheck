@@ -451,6 +451,10 @@ textarea#comment_content:focus {
   outline: 0px solid #ccc;
 }
 
+.clear {
+  clear: both;
+}
+
 /* search */
 .search-digest {
   font-size: 2.0rem;

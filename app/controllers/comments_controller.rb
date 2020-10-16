@@ -9,8 +9,9 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(user_id: current_user.id, review_id: params[:review_id], content: params[:comment][:content])
     @comment.save
+    @review = @comment.review
+    @review.create_notification_comment!(current_user, @comment.id)
     @review_id = params[:review_id]
-    @post.create_notification_comment!(current_user, @comment.id)
     respond_to do |format|
       format.js
     end
