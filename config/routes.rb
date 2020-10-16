@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :watched_items, only: %i[create destroy]
   resources :want_to_watch_items, only: %i[create destroy]
   resources :users, except: %i[index]
+  resources :notifications, only: :index
 end
