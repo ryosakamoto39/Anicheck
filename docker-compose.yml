@@ -12,7 +12,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/anicheck:cached
+      - .:/anicheck:delegated
       #ソケット通信用ファイルをnginxコンテナと共有
       - tmp-data:/anicheck/tmp/sockets
       #画像データとかをnginxと共有
