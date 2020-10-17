@@ -20,6 +20,10 @@ timeout $timeout
 listen  $listen
 pid $pid
 
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = $app_dir + "/Gemfile"
+end
+
 # ホットデプロイをするかしないかを設定
 preload_app true
 
