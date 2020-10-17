@@ -1,14 +1,18 @@
 <hr>
-<div class="notification-user-image">
-  <%= link_to "/users/#{notification.visitor.id}", alt: "ユーザーの画像" do %>
-    <%= image_tag notification.visitor.image.url %>
-  <% end %>
-</div>
-<div class="notification-view">
-  <%= notification_form(notification) %>
-  <div class="moderate-font">
-    <%= notification.created_at.strftime("%m月%d日 %H:%M") %></div>
-  <br>
-  <% if !@comment.nil? %>
-  <% end %>
-</div>
+  <div class="user-box">
+    <div class="user-box-content">
+      <div class="notification-user-image">
+        <%= link_to "/users/#{notification.visitor.id}", alt: "ユーザーの画像" do %>
+          <%= image_tag notification.visitor.image.url %>
+        <% end %>
+      </div>
+      <div class="user-box-content-text">
+        <div class="notification-view">
+            <%= notification_form(notification) %>
+        </div>
+        <div class="moderate-font">
+          <%= notification.created_at.strftime("%m月%d日 %H:%M") %>
+        </div>
+      </div>
+    </div>
+  </div>

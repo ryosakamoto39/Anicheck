@@ -649,7 +649,7 @@ textarea#comment_content:focus {
 
 /*通知一覧タイトル */
 .text-center{
-
+  /* */
 }
 
 /*通知ゴミ箱*/
@@ -659,13 +659,25 @@ textarea#comment_content:focus {
 
 /*通知はさみこみ*/
 .notification-index{
-
+  /* */
 }
 
 hr{
   width: 100%;
   background-color: #D4D6D5;
   margin: 0 auto;
+}
+
+.user-box{
+  padding: 25px 40px;
+  border-bottom: 2px solid #D4D6D5;
+  position: relative;
+}
+
+.user-box-content{
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
 .notification-user-image img{
@@ -676,14 +688,22 @@ hr{
   margin: auto 30px auto 0;
 }
 
+
+.user-box-content-text{
+  width: 650px;
+  font-size: 1.2rem;
+  line-height: 25px;
+  margin: auto 0;
+}
+
 /*通知内容文章*/
 .notification-view{
-
+  /* */
 }
 
 /*投稿時間*/
 .moderate-font{
-
+  padding-top: 5px;
 }
 
 /* footer */

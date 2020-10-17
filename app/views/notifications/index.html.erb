@@ -1,9 +1,9 @@
 <div class="container">
-<h3 class="text-center">通知一覧</h3>
+  <h3 class="text-center">通知一覧</h3>
     <div class="notification-trash">
       <%= link_to "全ての通知を消去する", notification_path(@notifications), method: :delete ,class: "fa fa-trash" %>
-      </div>
-    <% if @notifications.exists? %>
+    </div>
+      <% if @notifications.exists? %>
     <div class="notification-index">
         <%= render @notifications %>
     </div>
