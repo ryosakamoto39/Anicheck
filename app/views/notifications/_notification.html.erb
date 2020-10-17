@@ -1,5 +1,13 @@
+<hr>
+<div class="notification-user-image">
+  <%= link_to "/users/#{notification.visitor.id}", alt: "ユーザーの画像" do %>
+    <%= image_tag notification.visitor.image.url %>
+  <% end %>
+</div>
 <div class="notification-view">
-  <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
+  <%= notification_form(notification) %>
+  <div class="moderate-font">
+    <%= notification.created_at.strftime("%m月%d日 %H:%M") %></div>
   <br>
   <% if !@comment.nil? %>
   <% end %>

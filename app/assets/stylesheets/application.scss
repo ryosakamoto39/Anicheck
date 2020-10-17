@@ -645,6 +645,47 @@ textarea#comment_content:focus {
   margin:0 auto;
 }
 
+/* notification */
+
+/*通知一覧タイトル */
+.text-center{
+
+}
+
+/*通知ゴミ箱*/
+.notification-trash{
+  text-align: right;
+}
+
+/*通知はさみこみ*/
+.notification-index{
+
+}
+
+hr{
+  width: 100%;
+  background-color: #D4D6D5;
+  margin: 0 auto;
+}
+
+.notification-user-image img{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: auto 30px auto 0;
+}
+
+/*通知内容文章*/
+.notification-view{
+
+}
+
+/*投稿時間*/
+.moderate-font{
+
+}
+
 /* footer */
 .footer-wrapper {
   min-height: 10vh;
