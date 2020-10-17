@@ -6,24 +6,46 @@
 
     <% if @messages.present? %>
       <% @messages.each do |m| %>
-    <div class="balloon5">
-      <div class="faceicon">
-        <%= image_tag m.user.image.to_s %>
-      </div>
-      <a class="rooms-user-name" href="/users/<%= m.user.id %>">
-        <%= m.user.name %>
-      </a>
-      <div class="chatting">
-        <div class="says">
-          <p><%= m.content %></p>
+      <% if m.user_id == current_user.id %>
+
+        <div class="balloon5">
+          <div class="faceicon">
+            <%= image_tag m.user.image.to_s %>
+          </div>
+          <a class="rooms-user-name" href="/users/<%= m.user.id %>">
+          <%= m.user.name %>
+          </a>
+          <div class="chatting">
+            <div class="says">
+              <p><%= m.content %></p>
+            </div>
+          </div>
+          <div class="says-time">
+            <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
+          </div>
         </div>
-      </div>
-        <div class="says-time">
-          <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
+
+      <% else %>
+      <div class="balloon5-visitor">
+          <div class="faceicon">
+            <%= image_tag m.user.image.to_s %>
+          </div>
+          <a class="rooms-user-name-visitor" href="/users/<%= m.user.id %>">
+          <%= m.user.name %>
+          </a>
+          <div class="chatting">
+            <div class="says-visitor">
+              <p><%= m.content %></p>
+            </div>
+          </div>
+          <div class="says-time-visitor">
+            <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
+          </div>
         </div>
-    </div>
+
       <% end %>
     <% end %>
+  <% end %>
 
     <div class="posts">
       <%= form_for @message do |f| %>
@@ -31,7 +53,7 @@
 
         <%= f.hidden_field :room_id, value: @room.id %>
           <input type="submit" value="投稿" class="btn btn-primary">
-        <% end %>
+      <% end %>
     </div>
 
   </div>

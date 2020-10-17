@@ -645,6 +645,61 @@ textarea#comment_content:focus {
   margin-left: 100px;
 }
 
+.balloon5-visitor {
+  width: 100%;
+  margin: 1.5em 0;
+  overflow: hidden;
+}
+
+.balloon5-visitor .faceicon {
+  float: left;
+  margin-right: -90px;
+  width: 80px;
+}
+
+.balloon5-visitor .faceicon img{
+  width: 100%;
+  height: auto;
+  border: solid 3px #F2F2F2;
+  border-radius: 50%;
+}
+
+.balloon5-visitor .chatting {
+  width: 100%;
+}
+
+.says-visitor {
+  display: inline-block;
+  position: relative;
+  margin: 5px 0 0 105px;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: #F2F2F2;
+}
+
+.says-visitor:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  left: -24px;
+  border: 12px solid transparent;
+  border-right: 12px solid #F2F2F2;
+}
+
+.says-visitor p {
+  margin: 0;
+  padding: 0;
+}
+
+.says-time-visitor {
+  margin-top: 10px;
+}
+
+.rooms-user-name-visitor {
+  margin-left: 100px;
+}
+
 .chats {
   margin:0 auto;
 }
