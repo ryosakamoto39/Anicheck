@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :items
   resources :reviews, except: %i[index show]
-  resources :manufacturers, only: %i[edit update destroy]
-  resources :categories, only: %i[edit update destroy]
   resources :tags, only: %i[destroy]
   resources :comments, except: %i[index]
   resources :rooms, only: %i[index show create]
