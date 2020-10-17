@@ -9,6 +9,10 @@
   justify-content: center;
 }
 
+.container {
+  min-height: calc(100vh - 250px);
+}
+
 /* devise */
 
 input[type="text"] {
