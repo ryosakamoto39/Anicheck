@@ -1835,14 +1835,17 @@ end
 User.where.not(id: [admin.id]).each do |user|
   Review.all.sample(5).each do |review|
     ReviewLike.create!(user_id: user.id, review_id: review.id)
+    review.create_notification_like!(user)
   end
 end
 
 #レビューにコメントをつける
-comment_examples = ['うーん、この作品が気になります！', '参考になります！', '観て確かめてみたい。', 'そうなんですね！', '今日観てみました！', 'そういう意見もありますよね。', 'レビューありがとうございます！', '私もそう思います！', '私は逆に捉えました！', 'いろんな意見があるので気付きになります！']
+comment_examples = ['うーん、この作品が気になります！', '参考になります！', '観て確かめてみたい。', 'そうなんですね！', '今日観てみます！', 'そういう意見もありますよね。', 'レビューありがとうございます！', '私もそう思います！', '私は逆に捉えました！', 'いろんな意見があるので気付きになります！']
 User.where.not(id: [admin.id]).each do |user|
   Review.all.sample(10).each do |review|
     Comment.create!(content: comment_examples.sample, user_id: user.id, review_id: review.id)
+    @comment = Comment.last
+    review.create_notification_comment!(user, @comment.id)
   end
 end
 
@@ -1876,6 +1879,7 @@ end
 User.where.not(id: [admin.id]).each do |user|
   User.where.not(id: [admin.id, user.id]).sample(10).each do |other|
     user.follow(other)
+    other.create_notification_follow!(user)
   end
 end
 

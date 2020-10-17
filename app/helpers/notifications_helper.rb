@@ -16,7 +16,7 @@ module NotificationsHelper
       #コメントの内容と投稿のタイトルを取得　
       @comment = Comment.find_by(id: @visitor_comment)
       @comment_content = @comment.content
-      @review_title = @comment.review.title
+      @review_title = @comment.review.item.title
       tag.a(@visitor.name, href: user_path(@visitor)) + 'が' + tag.a("#{@review_title}", href: review_path(notification.review_id)) + 'にコメントしました'
     end
   end

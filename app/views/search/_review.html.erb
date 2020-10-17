@@ -11,7 +11,7 @@
     </div>
 
     <div class="review-scroll-userimage">
-      <%= link_to "users/#{review.user.id}" do %>
+      <%= link_to "#{review.user.id}" do %>
         <%= image_tag review.user.image.url, alt: "ユーザの画像" %>
       <% end %>
     </div>
