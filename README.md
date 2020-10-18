@@ -36,7 +36,7 @@ URL: https://anicheck.net
 
   - AWS（ EC2 / Route53 / RDS / VPC / ALB / S3 )
 
-  - Docker / Docker-Compose
+  - Docker / Docker-Compose（Virtual Box）
 
 * フロントエンド
 
@@ -105,7 +105,7 @@ URL: https://anicheck.net
 
   - 作品一覧
 
-  - レビュー / コメントの削除機能 
+  - レビュー / コメントの削除機能
 
 * 一般ユーザーのみ利用可能
 
@@ -122,3 +122,5 @@ URL: https://anicheck.net
   - レビュー / コメントへのいいね機能
 
   - メッセージ送信機能
+
+  - 通知機能（メッセージ・フォロー・コメント・いいね）
