@@ -32,11 +32,13 @@ URL: https://anicheck.net
 
 ## 構成
 
+* 開発環境
+
+  - Docker / Docker-Compose（Virtual Box + Vagrant）
+
 * インフラ
 
   - AWS（ EC2 / Route53 / RDS / VPC / ALB / S3 )
-
-  - Docker / Docker-Compose（Virtual Box）
 
 * フロントエンド
 
