@@ -26,4 +26,10 @@ RSpec.describe CommentLike, type: :model do
       expect(comment_like.errors[:comment_id]).to include("を入力してください")
     end
   end
+
+  it "作成と削除ができること" do
+    expect { FactoryBot.create(:comment_like) }.to change(CommentLike.all, :count).by(1)
+    expect { CommentLike.first.destroy }.to change(CommentLike.all, :count).by(-1)
+  end
+
 end

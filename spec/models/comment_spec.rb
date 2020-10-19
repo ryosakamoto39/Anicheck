@@ -4,6 +4,11 @@ RSpec.describe Comment, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:review) { FactoryBot.create(:review) }
   let(:comment) { FactoryBot.create(:comment) }
+  let(:comment_like) { FactoryBot.create(:comment_like) }
+
+  #自分で自分のレビューにコメントしているデモデータ
+  let(:self_comment) { FactoryBot.create(:comment, review: self_review, user:user) }
+  let(:self_review) { FactoryBot.create(:review, user: user) }
 
   it 'has a valid factory' do
     expect { FactoryBot.create(:comment) }.to change(Comment.all, :count).by(1)
@@ -47,4 +52,11 @@ RSpec.describe Comment, type: :model do
       expect(comment).to be_valid
     end
   end
+
+  #削除の依存関係
+  it 'コメントの作成・削除ができること' do
+    expect { FactoryBot.create(:comment) }.to change { Comment.all.count}.by(1)
+    expect { Comment.first.destroy }.to change { Comment.all.count }.by(-1)
+  end
+
 end
