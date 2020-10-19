@@ -32,7 +32,19 @@ RSpec.describe Message, type: :model do
       message.valid?
       expect(message.errors[:content]).to include("を入力してください")
     end
+  end
 
+  describe "メッセージの長さ" do
+    it "メッセージの長さが200文字以下であること" do
+      FactoryBot.create(:message, content: "a" * 200)
+      expect(message).to be_valid
+    end
+
+    it "メッセージの長さが201文字以上であること" do
+      message.content = "a" * 201
+      message.valid?
+      expect(message.errors[:content]).to include("は200文字以内で入力してください")
+    end
   end
 
 end
