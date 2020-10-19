@@ -21,13 +21,13 @@ RSpec.describe Item, type: :model do
     it "storyがなければ無効であること" do
       @valid_item.story = nil
       @valid_item.valid?
-      expect(@valid_item.errors[:story]).to include ("を入力してください")
+      expect(@valid_item.errors[:story]).to include("を入力してください")
     end
 
     it "titleがなければ無効であること" do
       @valid_item.title = nil
       @valid_item.valid?
-      expect(@valid_item.errors[:title]).to include ("を入力してください")
+      expect(@valid_item.errors[:title]).to include("を入力してください")
     end
   end
 
@@ -35,7 +35,7 @@ RSpec.describe Item, type: :model do
       FactoryBot.create(:item, title: "test")
       duplicate_item = Item.new(title: "test")
       duplicate_item.valid?
-      expect(duplicate_item.errors[:title]).to include ("はすでに存在します")
+      expect(duplicate_item.errors[:title]).to include("はすでに存在します")
     end
 
     describe "タイトルの長さ" do
@@ -47,7 +47,7 @@ RSpec.describe Item, type: :model do
       it "タイトルの長さが26文字以上であること" do
         item.title = "a" * 26
         item.valid?
-        expect(item.errors[:title]).to include ("は25文字以内で入力してください")
+        expect(item.errors[:title]).to include("は25文字以内で入力してください")
       end
     end
 
@@ -60,7 +60,7 @@ RSpec.describe Item, type: :model do
       it "あらすじの長さが301文字以上であること" do
         item.story = "a" * 301
         item.valid?
-        expect(item.errors[:story]).to include ("は300文字以内で入力してください")
+        expect(item.errors[:story]).to include("は300文字以内で入力してください")
       end
     end
 
