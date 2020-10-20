@@ -26,4 +26,17 @@ RSpec.describe ReviewLike, type: :model do
       expect(review_like.errors[:review_id]).to include("を入力してください")
     end
   end
+
+  it "2つ以上のいいねを付けられないこと" do
+    ReviewLike.create(user_id: user.id, review_id: review.id)
+    reviewlike = ReviewLike.new(user_id: user.id, review_id: review.id)
+    reviewlike.valid?
+    expect(reviewlike.errors[:review_id]).to include("はすでに存在します")
+  end
+
+  it "作成と削除ができること" do
+    expect { FactoryBot.create(:review_like) }.to change { ReviewLike.all.count }.by(1)
+    expect { ReviewLike.first.destroy }.to change { ReviewLike.all.count }.by(-1)
+  end
+
 end
