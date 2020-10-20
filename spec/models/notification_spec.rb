@@ -25,7 +25,7 @@ RSpec.describe Message, type: :model do
 #review_idが設定できる
 #comment_idが設定できる
 #message_idが設定できる
-
+#review_like_idが設定できる
 
 
 end
