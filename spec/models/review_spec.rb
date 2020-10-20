@@ -72,7 +72,7 @@ RSpec.describe Review, type: :model do
   end
 
   it "タグ付けができること" do
-    tag_list = Array.new(3) { |n|  "#{n+ 1 }個目のタグ" }
+    tag_list = Array.new(3) { |n|  "#{ n + 1 }個目のタグ" }
     expect { review.update(tag_list: tag_list) }.to change(ActsAsTaggableOn::Tag, :count).by(3)
   end
 
