@@ -94,4 +94,19 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+  RSpec::Matchers.define :have_not_null_constraint_on do |field|
+    match do |model|
+      model.send("#{field}=", nil)
+      begin
+        model.save!(validate: false)
+        false
+      rescue ActiveRecord::StatementInvalid
+        true
+      end
+    end
+
+    description { "have NOT NULL constraint on #{field}" }
+    failure_message { "expected to have NOT NULL constraint on #{field}, but not" }
+  end
+
 end

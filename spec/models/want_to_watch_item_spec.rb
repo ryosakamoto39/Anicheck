@@ -37,12 +37,12 @@ RSpec.describe WantToWatchItem, type: :model do
       expect{ WantToWatchItem.first.destroy }.to change { WantToWatchItem.all.count }.by(-1)
     end
 
-    it "同じユーザーが同じ作品に2回以上観たい！が作成できないこと" do
+    it "同じユーザーが同じ作品に2回以上観たい！を作成できないこと" do
       WantToWatchItem.create(user_id: user.id, item_id: item.id)
       want_to_watch_item = WantToWatchItem.new(user_id: user.id, item_id: item.id)
       want_to_watch_item.valid?
       expect(want_to_watch_item.errors[:item_id]).to include("はすでに存在します")
     end
   end
-  
+
 end
