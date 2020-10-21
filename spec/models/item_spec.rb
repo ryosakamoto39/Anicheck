@@ -171,7 +171,6 @@ RSpec.describe Item, type: :model do
     end
 
     describe "削除の依存関係" do
-
       it "削除すると、紐付くreviewも全て削除されること" do
         2.times { FactoryBot.create(:review, item: item) }
         expect { item.destroy }.to change { Review.all.count }.by(-2)

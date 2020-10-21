@@ -133,7 +133,90 @@ RSpec.describe User, type: :model do
       expect{user.destroy}.to change { user.following.all.count }.by(-2)
     end
 
+    it "削除すると、紐付くフォロワーが全て削除されること" do
+      user.follow(user1)
+      user.follow(user2)
+      expect{user.destroy}.to change { user1.followers.count }.by(-1) and change { user2.followers.count }.by(-1)
+    end
 
+    it "削除すると、紐付くレビューが全て削除されること" do
+      2.times { FactoryBot.create(:review, user: user) }
+      expect { user.destroy }.to change { Review.all.count }.by(-2)
+    end
+
+    it "削除すると、紐付くコメントが全て削除されること" do
+      2.times { FactoryBot.create(:comment, user: user) }
+      expect { user.destroy }.to change { Comment.all.count }.by(-2)
+    end
+
+    it "削除すると、紐付くレビューへのいいねが全て削除されること" do
+      2.times { FactoryBot.create(:review_like, user: user) }
+      expect { user.destroy }.to change { ReviewLike.all.count }.by(-2)
+    end
+
+    it "削除すると、紐付くコメントへのいいねが全て削除されること" do
+      2.times { FactoryBot.create(:comment_like, user: user) }
+      expect { user.destroy }.to change { CommentLike.all.count }.by(-2)
+    end
+
+    it "削除すると、紐付く観たい！が全て削除されること" do
+      2.times { FactoryBot.create(:want_to_watch_item, user: user) }
+      expect { user.destroy }.to change { WantToWatchItem.all.count }.by(-2)
+    end
+
+    it "削除すると、紐付く観た！が全て削除されること" do
+      2.times { FactoryBot.create(:watched_item, user: user) }
+      expect { user.destroy }.to change { WatchedItem.all.count }.by(-2)
+    end
+
+    it "削除すると、紐付くメッセージが全て削除されること" do
+      2.times { FactoryBot.create(:message, user: user) }
+      expect { user.destroy }.to change { Message.all.count }.by(-2)
+    end
+
+    it "削除すると、紐付くエントリーが全て削除されること" do
+      2.times { FactoryBot.create(:entry, user: user) }
+      expect { user.destroy }.to change { Entry.all.count }.by(-2)
+    end
   end
+
+  describe "フォロー機能" do
+    it "正しくフォローができること" do
+      expect{ user.follow(user1) }.to change { user.following.all.count }.by(1)
+    end
+
+    it "正しくフォローが解除できること" do
+      user.follow(user1)
+      expect{ user.following.first.destroy }.to change { user.following.all.count }.by(-1)
+    end
+
+    it "フォローすると、falseからtrueへ変わること" do
+      expect{ user.follow(user1) }.to change { user.following?(user1) }.from(be_falsey).to(be_truthy)
+    end
+
+    it "フォローを解除すると、trueからfalseに変わること" do
+      user.follow(user1)
+      expect{ user.unfollow(user1) }.to change { user.following?(user1) }.from(be_truthy).to(be_falsey)
+    end
+  end
+
+#  it "ルームを作成したことがある自分以外のユーザーを返す" do
+#    2.times { FactoryBot.create(:room) }
+#    FactoryBot.create(:entry, room: Room.first, user: user1)
+#    FactoryBot.create(:entry, room: Room.first, user: user)
+#    FactoryBot.create(:entry, room: Room.second, user: user2)
+#    FactoryBot.create(:entry, room: Room.second, user: user)
+#    expect(Entry.user1.id).to eq (user1.id, user2.id]
+#  end
+
+#  it "同じユーザー同士ではルームが新しく作られないこと" do
+#    2.times { FactoryBot.create(:room) }
+#    FactoryBot.create(:entry, room: Room.first, user: user1)
+#    FactoryBot.create(:entry, room: Room.first, user: user)
+#    expect { FactoryBot.create(:entry, room: Room.second, user: user), FactoryBot.create(:entry, room: Room.second, user: user2) }
+#  end
+
+
+
 
 end
