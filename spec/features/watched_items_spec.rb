@@ -14,7 +14,7 @@ RSpec.feature "WatchedItems", type: :feature do
     expect do
       visit "/items/#{Item.first.id}"
       click_link "観た！"
-      sleep (1)
+      sleep(1)
     end.to change(Item.first.watched_items, :count).by(1)
 
     #観た！が1になる
