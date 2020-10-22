@@ -4,18 +4,18 @@
 
 <% if ReviewLike.find_by(user_id: current_user&.id, review_id: review.id) %>
   <%= link_to "/review_likes/#{review.id}?count=#{count}", data: {"turbolinks" => false}, method: "delete", remote: true do %>
-    <span class="fa fa-heart like-btn-unlike">いいね！<%= count %></span>
+    <span class="fa fa-heart like-btn-unlike commentlike-area">いいね！<%= count %></span>
   <% end %>
 <% else %>
   <%= link_to "/review_likes?review_id=#{review.id}&count=#{count}", data: {"turbolinks" => false}, method: "post", remote: true do %>
-    <span class="fa fa-heart like-btn">いいね！<%= count unless count.zero? %></span>
+    <span class="fa fa-heart like-btn commentlike-area">いいね！<%= count unless count.zero? %></span>
   <% end %>
 <% end %>
 
 <% else %>
 
 <%= link_to new_user_session_path do %>
-  <span class="fa fa-heart like-btn">いいね！<%= count unless count.zero? %></span>
+  <span class="fa fa-heart like-btn commentlike-area">いいね！<%= count unless count.zero? %></span>
   <% end %>
 
 <% end %>

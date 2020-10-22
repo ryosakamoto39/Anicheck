@@ -13,6 +13,15 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rspec/rails'
+require 'support/capybara.rb'
+
+Dir[Rails.root.join("spec/support/*.rb")].each { |f| require f }
+ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+
 RSpec.configure do |config|
   config.before(:all) do
     FactoryBot.reload
@@ -94,6 +103,7 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+
   RSpec::Matchers.define :have_not_null_constraint_on do |field|
     match do |model|
       model.send("#{field}=", nil)
@@ -108,5 +118,8 @@ RSpec.configure do |config|
     description { "have NOT NULL constraint on #{field}" }
     failure_message { "expected to have NOT NULL constraint on #{field}, but not" }
   end
+
+  config.include Rails.application.routes.url_helpers
+  config.include Capybara::DSL
 
 end

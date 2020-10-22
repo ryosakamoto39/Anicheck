@@ -28,7 +28,7 @@ gem 'unicorn'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  #  gem 'sqlite3', '1.3.13'
+#  gem 'sqlite3', '1.3.13'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
@@ -47,9 +47,10 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
-  gem 'chromedriver-helper'
+  gem 'capybara'
+#  gem 'chromedriver-helper'
   gem 'selenium-webdriver'
+#  gem 'webdrivers', '~> 4.0'
 end
 
 group :production do
