@@ -14,7 +14,7 @@ RSpec.feature "Messages", type: :feature do
     visit "/users/#{other_user.id}"
 
     #メッセージボタンを押下
-    click_button "メッセージ"
+    click_on "メッセージ"
 
     #メッセージを入力
     fill_in "メッセージを入力して下さい", with: "test message"
@@ -36,7 +36,7 @@ RSpec.feature "Messages", type: :feature do
     visit "/users/#{user.id}"
 
     #メッセージボタンを押下
-    click_button "メッセージ"
+    click_on "メッセージ"
 
     #メッセージが画面に表示されていることを確認
     expect(page).to have_content "test message"

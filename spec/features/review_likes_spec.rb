@@ -5,7 +5,7 @@ RSpec.feature "ReviewLikes", type: :feature do
 
     #作品と、紐付くレビューを事前作成
       item = FactoryBot.create(:item)
-      review = FactoryBot.create(:review, item: item)
+      FactoryBot.create(:review, item: item)
 
     #一般ユーザーでログイン
       user = FactoryBot.create(:user)
