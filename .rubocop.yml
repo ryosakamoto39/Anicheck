@@ -12,7 +12,7 @@ AllCops:
     - 'config/deploy.rb'
     - 'config/unicorn.conf.rb'
     - 'notifications_controller.rb'
-    - 'users_controller.rb'
+    - 'app/controllers/users_controller.rb'
 
 # 日本語でのコメントを許可
 AsciiComments:
