@@ -1,11 +1,11 @@
 require "rails_helper"
 
-RSpec.describe "CommentLikes", type: :request do
+RSpec.describe "WantToWatchItems", type: :request do
   let(:user) { FactoryBot.create(:user) }
 
   describe "#create" do
     before do
-      @comment = FactoryBot.create(:comment)
+      @item = FactoryBot.create(:item)
     end
 
 #    context "未ログインの場合" do
@@ -21,12 +21,12 @@ RSpec.describe "CommentLikes", type: :request do
       end
 
       it "正常にレスポンスを返すこと" do
-        post "/comment_likes?comment_id=#{@comment.id}", xhr: true
+        post "/want_to_watch_items?item_id=#{@item.id}", xhr: true
         expect(response).to be_successful
       end
 
       it "200レスポンスを返すこと" do
-        post "/comment_likes?comment_id=#{@comment.id}", xhr: true
+        post "/want_to_watch_items?item_id=#{@item.id}", xhr: true
         expect(response).to have_http_status "200"
       end
     end
