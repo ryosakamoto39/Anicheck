@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     popular_ids = Review.popular_ids
     review_select = 7
 
-    popular_reviews_all = Review.where(id: popular_ids).order([Arel.sql('field(id, ?)'), popular_ids]).where.not(user_id: @current_user&.block_ids)
+    popular_reviews_all = Review.where(id: popular_ids).order([Arel.sql('field(id, ?)'), popular_ids]).where.not(user_id: @current_user&.block_ids).where.not('content like ?','%netabare%')
     @popular_reviews = popular_reviews_all.limit(review_select)
 
     # --------------------------------------------------------------------------------

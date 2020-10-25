@@ -8,13 +8,13 @@ RSpec.describe "WantToWatchItems", type: :request do
       @item = FactoryBot.create(:item)
     end
 
-#    context "未ログインの場合" do
-#      it "正常にレスポンスを返すこと" do
-#        post "/comment_likes?comment_id=#{@comment.id}", xhr: true
-#        expect(response).to redirect_to "/users/sign_in"
-#      end
-#    end
-
+    context "未ログインの場合" do
+      it "正常にレスポンスを返すこと" do
+        get "/users/sign_in"
+        expect(response).to have_http_status "200"
+      end
+    end
+    
     context "一般ユーザー" do
       before do
         sign_in user

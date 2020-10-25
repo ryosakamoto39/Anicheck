@@ -3,6 +3,7 @@
 
 
 <div class="main">
+<div class="container">
 <h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -27,12 +28,10 @@
     <input type="submit" value="ログイン" class="btn btn-primary">
   </div>
 <% end %>
-<br>
+<br><br>
 ポートフォリオ用：
-<br>
 <%= render "devise/sessions/testuser" %>
-<br>
-<%= render "devise/sessions/admin" %>
-<br>
+<%#= render "devise/sessions/admin" %>
 <%= render "devise/shared/links" %>
+</div>
 </div>
