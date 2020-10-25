@@ -5,60 +5,59 @@
   <div class="show-items-<%= @item.id %>">
     <div class="show-items-<%= @item.id %>">
 
-<div class="item-form">
-  <h2 class="item-title">
-    <%= @item.title %>
-  </h2>
+  <div class="item-form">
+    <h2 class="item-title">
+      <%= @item.title %>
+    </h2>
 
-  <div class="item-left">
-  <div class="item-image">
-    <%= image_tag @item.image.to_s %>
-  </div>
+    <div class="item-left">
+      <div class="item-image">
+        <%= image_tag @item.image.to_s %>
+      </div>
 
-<% if user_signed_in? %>
-  <div class ="item-botton">
-    <p><a href="/reviews/new?item_id=<%= @item.id %>}" class="btn btn-primary btn-lg">この作品のレビューを書く</a></p>
-  </div>
-<% else %>
-<div class ="item-botton">
-  <p><a href="/users/sign_in" class="btn btn-primary btn-lg">この作品のレビューを書く</a></p>
-</div>
-<% end %>
-
-  <span class="watched-items">
-    <%= render "watched_items/show" %>
-  </span>
-
-  <span class="want-to-watch-items">
-    <%= render "want_to_watch_items/show" %>
-  </span>
-  </div>
-
-  <div class="item-right">
-    <h3 class="item-rate">
-      平均評価 ： <%= @average_rate.round(1) unless @average_rate == nil %> ／ 5.0 点
-    </h3>
-
-    <h5 class="item-story">
-      <%= simple_format(@item.story) %> 
-    </h5>
-
-    <div class="item-edit">
-      <% if current_user&.admin? %>
-        <%= link_to "編集", "/items/#{@item.id}/edit" %>
-        <%= link_to "削除", "/items/#{@item.id}", method: "delete",
-          data: { confirm: '一度削除すると元に戻すことはできません。本当に削除してよろしいでしょうか？' } %>
+      <% if user_signed_in? %>
+      <div class ="item-botton">
+        <p><a href="/reviews/new?item_id=<%= @item.id %>}" class="btn btn-primary btn-lg">この作品のレビューを書く</a></p>
+      </div>
+      <% else %>
+      <div class ="item-botton">
+        <p><a href="/users/sign_in" class="btn btn-primary btn-lg">この作品のレビューを書く</a></p>
+      </div>
       <% end %>
-    </div>
-  </div>
-</div>
 
-    <div class="review-form">
-      <h3>この作品のレビュー ： <%= @review_count.count %> 件</h3>
-      <%= render @reviews %>
-      <br>
-      <%= paginate @reviews %>
+      <span class="watched-items">
+        <%= render "watched_items/show" %>
+      </span>
+
+      <span class="want-to-watch-items">
+        <%= render "want_to_watch_items/show" %>
+      </span>
+
+    <div class="item-right">
+      <h3 class="item-rate">
+        平均評価 ： <%= @average_rate.round(1) unless @average_rate == nil %> ／ 5.0 点
+      </h3>
+
+      <h5 class="item-story">
+        <%= simple_format(@item.story) %>
+      </h5>
+
+      <div class="item-edit">
+        <% if current_user&.admin? %>
+          <%= link_to "編集", "/items/#{@item.id}/edit" %>
+          <%= link_to "削除", "/items/#{@item.id}", method: "delete",
+          data: { confirm: '一度削除すると元に戻すことはできません。本当に削除してよろしいでしょうか？' } %>
+        <% end %>
+      </div>
+    </div>
     </div>
   </div>
+  <div class="review-form">
+    <h3>この作品のレビュー ： <%= @review_count.count %> 件</h3>
+    <%= render @reviews %>
+    <br>
+    <%= paginate @reviews %>
+  </div>
+    </div>
   </div>
 </div>
