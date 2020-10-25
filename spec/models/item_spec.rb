@@ -70,12 +70,6 @@ RSpec.describe Item, type: :model do
         expect(item).to be_valid
       end
 
-#      it "画像なしの場合、デフォルト画像が表示されること" do
-#        item = FactoryBot.build(:item, image: nil)
-#        expect(item.image.url).to eq "/assets/*.png"
-#      end
-#画像URLが変わるため、設定ができない
-
       it "デフォルト画像以外の画像を登録できること" do
         image_path = Rails.root.join("app/assets/images/anicheck.png")
         item = FactoryBot.build(:item, image: File.open(image_path))
@@ -132,27 +126,6 @@ RSpec.describe Item, type: :model do
         expect(Item.popular_ids).to eq popular_ids
       end
     end
-
-#    it "観た！の降順にidを返す" do
-#      2.times { FactoryBot.create(:item) }
-#      FactoryBot.create(:watched_item, item: Item.first)
-#      2.times { FactoryBot.create(:watched_item, item: Item.second) }
-#
-#      # 予想ではidの降順を返す
-#      watched_ids = Item.all.order(id: :desc).ids
-#      expect(Item.watched_ids).to eq watched_ids
-#    end
-#
-#    it "食べたい！の降順にidを返す" do
-#      2.times { FactoryBot.create(:item) }
-#      FactoryBot.create(:want_to_watch_item, item: Item.first)
-#      2.times { FactoryBot.create(:want_to_watch_item, item: Item.second) }
-#
-#      # 予想ではidの降順を返す
-#      want_to_watch_ids = Item.all.order(id: :desc).ids
-#      expect(Item.want_to_watch_ids).to eq want_to_watch_ids
-#    end
-#テスト通過しないので、一旦パス
 
     describe "検索" do
       it "作品名と一致する文言があればヒットすること" do

@@ -43,10 +43,10 @@ RSpec.feature "Relationships", type: :feature do
     #被フォロー状態
     other_user.follow(user)
 
-#    #ユーザー検索結果
-#    visit "/search?type=user"
-#    expect(page).to have_content("フォロー", count: 1) #other_user
-#    expect(page).to have_content("フォロワー", count: 1) #other_user
+    #ユーザー検索結果
+    visit "/search?type=user"
+    expect(page).to have_content("フォロー(1)", count: 2) #other_user
+    expect(page).to have_content("フォロワー(1)", count: 2) #other_user
 
     #アンフォローを実行
     expect do

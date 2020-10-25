@@ -4,9 +4,6 @@ RSpec.describe "Comments", type: :request do
   let(:user) { FactoryBot.create(:user) }
 
   describe "#create" do
-#    before do
-#      @review = FactoryBot.create(:review, item: item)
-#    end
 
     context "一般ユーザー" do
       it "正常にレスポンスを返すこと" do

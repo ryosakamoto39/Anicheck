@@ -6,9 +6,7 @@ RSpec.describe User, type: :model do
   let(:user2) { FactoryBot.create(:user) }
   let(:admin) { FactoryBot.create(:admin) }
   let(:comment) { FactoryBot.create(:comment, user: user) }
-  let(:room1) { FactoryBot.create(:room1) }
-  let(:room2) { FactoryBot.create(:room2) }
-
+  
   it "有効なファクトリーを持つこと" do
     expect { FactoryBot.create(:user) }.to change(User.all, :count).by(1)
   end
@@ -110,20 +108,6 @@ RSpec.describe User, type: :model do
       user.image = nil
       expect(user).to be_valid
     end
-
-#    it "画像のサイズが5MB以下であればアップロードできること" do
-#      image_path = Rails.root.join("public/default/5mb.png")
-#      user.image = File.open(image_path)
-#      user.save
-#      expect(user).to be_valid
-#    end
-
-#    it "画像のサイズが5MBを超えるとアップロードできないこと" do
-#      image_path = Rails.root.join("public/default/over_5mb.png")
-#      user.image = File.open(image_path)
-#      user.valid?
-#      expect(user.errors[:image]).to include("")
-#    end
   end
 
   describe "削除の依存関係" do
@@ -199,24 +183,5 @@ RSpec.describe User, type: :model do
       expect{ user.unfollow(user1) }.to change { user.following?(user1) }.from(be_truthy).to(be_falsey)
     end
   end
-
-#  it "ルームを作成したことがある自分以外のユーザーを返す" do
-#    2.times { FactoryBot.create(:room) }
-#    FactoryBot.create(:entry, room: Room.first, user: user1)
-#    FactoryBot.create(:entry, room: Room.first, user: user)
-#    FactoryBot.create(:entry, room: Room.second, user: user2)
-#    FactoryBot.create(:entry, room: Room.second, user: user)
-#    expect(Entry.user1.id).to eq (user1.id, user2.id]
-#  end
-
-#  it "同じユーザー同士ではルームが新しく作られないこと" do
-#    2.times { FactoryBot.create(:room) }
-#    FactoryBot.create(:entry, room: Room.first, user: user1)
-#    FactoryBot.create(:entry, room: Room.first, user: user)
-#    expect { FactoryBot.create(:entry, room: Room.second, user: user), FactoryBot.create(:entry, room: Room.second, user: user2) }
-#  end
-
-
-
 
 end

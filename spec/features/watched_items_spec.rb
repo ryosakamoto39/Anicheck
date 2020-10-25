@@ -45,9 +45,9 @@ RSpec.feature "WatchedItems", type: :feature do
     visit "/search"
     expect(page).to have_content("観た！")
 
-#    #ユーザーページの観た実績が0になり、表示される作品についても実績が0となる
-#    visit "/users/#{user.id}"
-#    click_link "観た！(0)"
-#    expect(page).to have_content("観た！(0)", count: 0)
+    #ユーザーページの観た実績が0になり、表示される作品についても実績が0となる
+    visit "/users/#{user.id}"
+    click_link "観た！(0)"
+    expect(page).to have_content("観た！", count: 1)
   end
 end

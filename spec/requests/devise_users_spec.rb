@@ -15,11 +15,6 @@ RSpec.describe "UserAuthentications", type: :request do
         expect(response.status).to eq 302
       end
 
-#      it '認証メールが送信されること' do
-#        post user_registration_path, params: { user: user_params }
-#        expect(ActionMailer::Base.deliveries.size).to eq 1
-#      end
-
       it 'createが成功すること' do
         expect do
           post user_registration_path, params: { user: user_params }

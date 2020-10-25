@@ -25,13 +25,6 @@ RSpec.describe Entry, type: :model do
       end
     end
 
-#    it "同じroomに二度とentryできないこと" do
-#      Entry.create(user_id: user.id, room_id: room.id)
-#      entry = Entry.new(user_id: user.id, room_id: room.id)
-#      expect(entry).to be_valid
-#    end
-#２つ作れてしまう
-
     #作成と削除ができること
     it "作成と削除ができること" do
       expect { FactoryBot.create(:entry) }.to change {Entry.all.count }.by(1)

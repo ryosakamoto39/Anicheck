@@ -33,8 +33,6 @@ RSpec.feature "ReviewLikes", type: :feature do
       click_link "いいね！(1)"
       expect(page).to have_content("いいね！(1)", count: 1)
 
-    #ユーザーページのレビュー実績のいいねが1になる
-
     #作品画面に遷移する
       visit "/items/#{item.id}"
 
@@ -56,8 +54,6 @@ RSpec.feature "ReviewLikes", type: :feature do
       visit "/users/#{user.id}"
       click_link "いいね！"
       expect(page).to have_content("いいね！", count: 1)
-
-    #ユーザーページのレビュー実績のいいねが0になる
   end
 
 end

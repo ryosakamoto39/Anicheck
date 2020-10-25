@@ -31,24 +31,4 @@ RSpec.feature "Comments", type: :feature do
     expect(page).to have_content("コメント作成", count: 1)
   end
 
-#  scenario "管理者がコメント削除できること" do
-#    review = FactoryBot.create(:review)
-#    item = Item.find(review.item_id)
-#    comment = FactoryBot.create(:comment)
-
-#    #管理者でログイン
-#    user = FactoryBot.create(:admin)
-#    sign_in user
-
-#    #作品ページへ
-#    visit "/items/#{item.id}"
-
-#    #コメント削除
-#    expect do
-#      click_link "削除"
-#      sleep(1)
-#    end.to change(user.comments, :count).by(-1)
-#    expect(page).to have_content(count: 0)
-#  end
-
 end
