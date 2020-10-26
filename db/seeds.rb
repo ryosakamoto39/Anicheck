@@ -1835,7 +1835,7 @@ Review.all.sample(Review.count).each_with_index do |review, i|
 end
 
 Review.where('content like ?','%netabare%').each_with_index do |review, i|
-  time = Time.zone.now - (1 * i).minutes
+  time = Time.zone.now - (12 * i).hours
   review.update_attribute(:created_at, time)
 end
 
