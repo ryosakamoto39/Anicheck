@@ -17,7 +17,7 @@ module NotificationsHelper
       @comment = Comment.find_by(id: @visitor_comment)
       @comment_content = @comment.content
       @review_title = @comment.review.item.title
-      tag.a(@visitor.name, href: user_path(@visitor)) + 'さんが' + tag.a("#{@review_title}", href: item_path(notification.review.item.id)) + 'にコメントしました'
+      tag.a(@visitor.name, href: user_path(@visitor)) + 'さんも' + tag.a("#{@review_title}", href: item_path(notification.review.item.id)) + 'にコメントしました'
     when 'dm' then
       tag.a(notification.visitor.name, href: user_path(@visitor)) + 'さんがあなたにメッセージを送りました'
     end

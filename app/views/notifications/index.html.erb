@@ -10,6 +10,8 @@
     <div class="notification-index">
         <%= render @notifications %>
     </div>
+    <%= paginate @notifications %>
+
 <% else %>
     <p class="text-center">新しい通知はありません</p>
 <% end %>

@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @type = params[:type] || 'review'
 
     if @type == 'review'
-      @results = @user.reviews.includes(:item)
+      @results = @user.reviews.includes(:item).where.not('content like ?','%netabare%')
       respond_to do |format|
         format.js
         format.html
