@@ -26,7 +26,6 @@
 <% end %>
 
 <% if current_user.id != @user.id %>
-
     <div class="follow-link">
       <% if current_user.following?(@user) %>
         <%= link_to "フォロー解除", "/relationships/#{@user.id}", method: :delete, remote: true %>
