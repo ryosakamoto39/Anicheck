@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   end
 
   def self.rank
-    border_score = 1 # 1点を超えない商品は除く
+    border_score = 1 # 1点を超えない作品は除く
     weight = -3 # 5点満点のレビューで3点を0点、5点を2点として評価を再マッピングするために使用する
     # 1点がたくさん集まるより、低評価が少なく、高得点のみを獲得している方が評価が高いため
 
@@ -44,7 +44,7 @@ class Item < ApplicationRecord
     want_count.sort_by { |_, count| -count }.to_h.keys
   end
 
-  # あるタグが付いたレビューを持つ商品を、タグ付け回数の降順に返す
+  # あるタグが付いたレビューを持つ作品を、タグ付け回数の降順に返す
   def self.tagged_desc(tag_name)
     # 対象タグのidを割り出す
     tag_id = ActsAsTaggableOn::Tag.find_by(name: tag_name).id
