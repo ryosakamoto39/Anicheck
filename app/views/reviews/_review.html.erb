@@ -10,16 +10,16 @@
 </div>
 
 <div class="review-time">
-<p><%= review.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
+  <p><%= review.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
 </div>
 </div>
 
 <div class="review-rate">
-<%= render "shared/rate", review: review %>
+  <%= render "shared/rate", review: review %>
 </div>
 
 <div class="review-content">
-<p><%= simple_format(review.content) %></p>
+  <p><%= simple_format(review.content) %></p>
 </div>
 
 <div class="show-review-tag">
@@ -33,7 +33,7 @@
     </div>
 
 <span class="review-area">
-<%= render "review_likes/show", review: review, count: @count %>
+  <%= render "review_likes/show", review: review, count: @count %>
 </span>
 
 <span class="fa fa-comment-o">

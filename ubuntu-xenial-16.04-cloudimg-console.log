@@ -655,3 +655,7 @@ Ubuntu 16.04.7 LTS anicheck ttyS0
 
 anicheck login: [   20.182817] cloud-init[1899]: Cloud-init v. 20.3-2-g371b392c-0ubuntu1~16.04.1 running 'modules:final' at Wed, 04 Nov 2020 09:37:42 +0000. Up 20.00 seconds.
 [   20.183262] cloud-init[1899]: Cloud-init v. 20.3-2-g371b392c-0ubuntu1~16.04.1 finished at Wed, 04 Nov 2020 09:37:42 +0000. Datasource DataSourceNoCloud [seed=/dev/sdb][dsmode=net].  Up 20.17 seconds
+[18385.668912] e1000 0000:00:03.0 enp0s3: Reset adapter
+[18392.209784] e1000 0000:00:03.0 enp0s3: Reset adapter
+[56616.743515] e1000 0000:00:03.0 enp0s3: Reset adapter
+[56624.086895] e1000 0000:00:03.0 enp0s3: Reset adapter
