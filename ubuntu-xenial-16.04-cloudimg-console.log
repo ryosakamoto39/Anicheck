@@ -659,3 +659,7 @@ anicheck login: [   20.182817] cloud-init[1899]: Cloud-init v. 20.3-2-g371b392c-
 [18392.209784] e1000 0000:00:03.0 enp0s3: Reset adapter
 [56616.743515] e1000 0000:00:03.0 enp0s3: Reset adapter
 [56624.086895] e1000 0000:00:03.0 enp0s3: Reset adapter
+[91824.233486] e1000 0000:00:03.0 enp0s3: Reset adapter
+[93479.149417] e1000 0000:00:03.0 enp0s3: Reset adapter
+[96749.430180] e1000 0000:00:03.0 enp0s3: Reset adapter
+[98416.203620] e1000 0000:00:03.0 enp0s3: Reset adapter
