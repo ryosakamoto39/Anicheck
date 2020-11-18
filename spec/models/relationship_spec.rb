@@ -5,26 +5,26 @@ RSpec.describe Relationship, type: :model do
     2.times { FactoryBot.create(:user) }
   end
 
-  describe 'Presence of follower_id, followed_id' do
-    it 'is valid with a follower_id and followed_id' do
+  describe 'follower_idとfollowed_idの有効性' do
+    it 'follower_idとfollowed_idが存在すること' do
       relationship = Relationship.new(follower_id: User.first.id, followed_id: User.second.id)
       expect(relationship).to be_valid
     end
 
-    it 'is invalid without a follower_id' do
+    it 'follower_idがなければ無効であること' do
       relationship = Relationship.new(follower_id: nil, followed_id: User.first.id)
       relationship.valid?
       expect(relationship.errors[:follower_id]).to include("を入力してください")
     end
 
-    it 'is invalid without a followed_id' do
+    it 'followed_idがなければ無効であること' do
       relationship = Relationship.new(follower_id: User.first.id, followed_id: nil)
       relationship.valid?
       expect(relationship.errors[:followed_id]).to include("を入力してください")
     end
   end
 
-  it 'can not follow yourself' do
+  it '自分自身をフォローすることができないこと' do
     relationship = Relationship.new(follower_id: User.first.id, followed_id: User.first.id)
     relationship.valid?
     expect(relationship.errors[:followed_id]).to include('自分自身をフォローすることはできません')
@@ -41,5 +41,5 @@ RSpec.describe Relationship, type: :model do
     expect{ FactoryBot.create(:relationship) }.to change { Relationship.all.count}.by(1)
     expect{ Relationship.first.destroy}.to change { Relationship.all.count}.by(-1)
   end
-  
+
 end
