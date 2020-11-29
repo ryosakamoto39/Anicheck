@@ -8,7 +8,7 @@ RSpec.describe WantToWatchItem, type: :model do
     expect { FactoryBot.create(:want_to_watch_item) }.to change(WantToWatchItem.all, :count).by(1)
   end
 
-  describe 'presence of user_id, item_id' do
+  describe 'user_idとitem_idが存在すること' do
     it 'is valid with a user_id and item_id' do
       want_to_watch_item = WantToWatchItem.new(user_id: user.id, item_id: item.id)
       expect(want_to_watch_item).to be_valid
