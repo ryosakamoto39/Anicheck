@@ -14,7 +14,7 @@ RSpec.describe WantToWatchItem, type: :model do
       expect(want_to_watch_item).to be_valid
     end
 
-    it 'is invalid without a user_id' do
+    it 'user_idがなければ無効であること' do
       want_to_watch_item = WantToWatchItem.new(user_id: nil, item_id: item.id)
     want_to_watch_item.valid?
     expect(want_to_watch_item.errors[:user_id]).to include("を入力してください")
